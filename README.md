@@ -1,7 +1,7 @@
 # COMP SCI 1XA3 - Mark Hutchison
 
 ## About Me
-I am primarily a Web Designer who has experience with designing in the following languages:
+I am primarily a Web Designer who has experience with developing in the following languages:
 
 * HTML
 * SCSS, CSS
