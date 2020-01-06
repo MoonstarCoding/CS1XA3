@@ -1,4 +1,4 @@
-# Comp Sci 1XA3 - Mark Hutchison
+# COMP SCI 1XA3 - Mark Hutchison
 
 ## About Me
 I am primarily a Web Designer who has experience with designing in the following languages:
