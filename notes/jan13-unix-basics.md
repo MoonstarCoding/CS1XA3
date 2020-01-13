@@ -184,7 +184,7 @@ The command `read` allows you to input something to a variable, where the variab
 
 ### IO Redirection
 
-The following code uses the `>` symbole to redirect `stdout` to create **/ overwrite** a file.
+The following code uses the `>` symbol to redirect `stdout` to create **/ overwrite** a file.
 
 ```powershell
   touch file               # Make a file
@@ -194,7 +194,7 @@ The following code uses the `>` symbole to redirect `stdout` to create **/ overw
   # Output: Hello World
 ```
 
-The following code uses the `>>` symbole to redirect `stdout` to create **/ append** to a file.
+The following code uses the `>>` symbol to redirect `stdout` to create **/ append** to a file.
 
 ```powershell
   touch file                  # Make a file
