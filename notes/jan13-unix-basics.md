@@ -98,6 +98,8 @@ Both `touch` and `mkdir` can create files. However, you will use `mkdir` more an
   mkdir name                # Makes folder in directory
 ```
 
+Additionally, you will be learning an alternative way to creating files that works on bash terminals.
+
 ### Deleting
 
 The `rm` command is designed to destroy a file or folder. When paired with `-r`, it recursively deletes the contents of a directory, and then the directory itself.
