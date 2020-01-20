@@ -44,3 +44,78 @@ There are 3 main development areas to Git workflow.
 The `Working Directory` is where you do all the editing, the `Staging Area` is where you put everything and prepare it for shipping, and a commit will save and ship to the `Git Server`.
 
 > The command `git status` will tell you if a file exists in the `Working Directory` which hasn't been `staged`, or if a `stage` exists in the `Staging Area` and a `commit` hasn't been made. it will not tell you to `push` your `stage`, but it will tell you how many `commits` ahead of the `Git Server` you are.
+
+## More Commands
+
+These are just a but ton of git commands and short explanations:
+
+```bash
+git add <file/-A>               # Add file to Staging Area
+git rm <file/dir>               # Remove a file/dir from Git Server
+git status                      # Check current Git status
+git reset <optional: file>      # Reset Staging Area
+git log <--online/--graph>      # Check the history of the repo <one commit only/check branches>
+git diff <commit id> <file>     # Check the differences between files
+```
+
+## Git Repo Workflow
+
+After you have edited the local database, you can transfer and sync that database to a `Git Server`. You go from `Local Workspace` to `Staging Area`, `Staging Area` to `Local Repo`, and `Local Repo` to `Server Repo`. To go between them, you will have to either `push` or `pull`... or use the `fetch`, `check`, `merge` method, but that isn't very beginner friendly.
+
+> The command `git remote -v` shows you the remote repo url you are using.
+
+```bash
+git pull origin           # Pull files from Git Server in 1 step
+git push origin <branch>  # Push commit to Git Server in 1 step
+```
+
+### Merge Conflicts
+
+If the server and the local have differences in the same area of a file, it will have a `Merge Conflict`. You will have to manually fix the conflicts between the files and then pull as you intended. To help minimize this, always `pull` from a `Git Server` before working and double check you are the only editor at the moment.
+
+To fix it **manually**, open the file and look for something like the following:
+
+```bash
+<<<<<<< HEAD
+  print("This is the Local/Current Change")
+=======
+  print("This is the Server/Incoming Change")
+>>>>>>>
+```
+
+> Note: In Visual Studio Code, it recognizes this format and adds easy buttons to troubleshoot on your behalf. I will show you how to fix it yourself.
+
+To fix it **automatically** using Git, you can do the following:
+
+```bash
+git checkout --ours <file>    # Merge file to match my changes
+git checkout --theirs <file>  # Merge files to match their changes
+git merge --abort             # Ignore it and fix it later
+git merge --continue          # Continue with the merging
+# OR you can do git add and git commit
+```
+
+## Fixing Your Screw-Ups
+
+### Step 1 - Prevent It
+
+- Make frequent commits.
+- Work from a testing branch and only merge working code to `master` branch.
+- Always do a `git pull` before doing any work.
+
+### Step 2 - You've Already Screwed Up
+
+- Retrieve a file from an earlier commit with `git checkout`
+- Undo a previous commit with `git revert`
+
+> #### Restoring a File using git checkout
+>
+> The command `git checkout <commit id> <file/dir>` will save you in so many moments. You can go back to the last commit made and pull specific items from it - thus checking the out from that commit into your current `Workspace`. Using `git log --graph` will make it easier to check all the commits and find the best commit and it's id. This is also why frequent commits are extremely useful.
+>
+> #### Undoing Whole Commits
+>
+> Using `git revert <HEAD/commit id>` will let you essentially `ctrl-z` your way through your file history back to a commit point.
+>
+> #### Remove Local Changes Before Commit
+>
+> Using `git stash` will take all changes that aren't deleting a file, and kind of stash them away. We use this instead of `git checkout` because we can undo this without making a commit. Using `git stash pop`, you can bring back all the changes you stashed away.
