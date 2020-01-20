@@ -16,7 +16,7 @@ I will be using the application Terminus for this course.
 
 Begin by doing doing the following:
 
-```powershell
+```bash
   ssh username@domain.com
   # enter password prompt
   # do something
@@ -31,7 +31,7 @@ Typically, using `CTRL + L`, you will clear a terminal screen. However, on Termi
 
 The `scp` command allows you to transfer files from Point A to Point B. For example, if I wanted to move this file to a server, I would do:
 
-```powershell
+```bash
   scp file_directory username@domain.ca:~
 ```
 
@@ -57,7 +57,7 @@ For example, `uname -a` gathers all information about the server or device you a
 
 File Paths are used with the `cd` command. For example:
 
-```powershell
+```bash
   cd /    # Root Directory
   cd `    # Home Directory
   cd .    # Current Directory
@@ -69,7 +69,7 @@ File Paths are used with the `cd` command. For example:
 
 File paths beginning with a `/` are considered to be absolute file paths as they start at the root directory. The root directory is the absolute furthest back you can go in a computer system.
 
-```powershell
+```bash
   cd /home/username/    # Goes from the Root Directory to my home directory
 ```
 
@@ -92,7 +92,7 @@ This includes:
 
 Both `touch` and `mkdir` can create files. However, you will use `mkdir` more and probably will just use `scp` to transfer files to a server.
 
-```powershell
+```bash
   touch filename.extension  # Creates file in directory
 
   mkdir name                # Makes folder in directory
@@ -104,7 +104,7 @@ Additionally, you will be learning an alternative way to creating files that wor
 
 The `rm` command is designed to destroy a file or folder. When paired with `-r`, it recursively deletes the contents of a directory, and then the directory itself.
 
-```powershell
+```bash
   rm filename  # Destroys file (or files) in directory
   rm -r directory        # Destroys file (or files) in directory
 ```
@@ -115,7 +115,7 @@ The `rm` command is designed to destroy a file or folder. When paired with `-r`,
 
 The `cp` command will take an existing file and will copy it. Once again, using `-r` will allow you to copy a directory recursively.
 
-```powershell
+```bash
   cp filename destination       # Copy a file to a new destination
   cp -r directory destination   # Copy a directory to a new destination
 ```
@@ -126,7 +126,7 @@ The `cp` command will take an existing file and will copy it. Once again, using 
 
 The `mv` command will take an existing file and will copy it. However, you do not need to use the `-r` flag on directories.
 
-```powershell
+```bash
   mv filename destination       # Move a file to a new destination
   mv directory destination      # Move a directory to a new destination
 ```
@@ -179,7 +179,7 @@ The command `echo` allows you to print an output, and the command `cat` dumps th
 
 The command `read` allows you to input something to a variable, where the variables are called with a `$`.
 
-```powershell
+```bash
   read name    # Takes input and assigns it to name variable
   echo $name   # Outputs the name variable
 ```
@@ -188,7 +188,7 @@ The command `read` allows you to input something to a variable, where the variab
 
 The following code uses the `>` symbol to redirect `stdout` to create **/ overwrite** a file.
 
-```powershell
+```bash
   touch file               # Make a file
   echo Hello World > file  # Overwrite file with message
   cat file                 # print file contents
@@ -198,7 +198,7 @@ The following code uses the `>` symbol to redirect `stdout` to create **/ overwr
 
 The following code uses the `>>` symbol to redirect `stdout` to create **/ append** to a file.
 
-```powershell
+```bash
   touch file                  # Make a file
   echo Hello World > file     # Overwrite file with message
   echo Goodbye World >> file  # Append file with message
@@ -213,14 +213,14 @@ The following code uses the `>>` symbol to redirect `stdout` to create **/ appen
 
 The `2>` symbol allows you to push `stderr` to a file, but doesn't impact the `stdout`. With python, we will be doing this a lot.
 
-```powershell
+```bash
   python3 script.py > output.txt  # Outputs are overwritten into output.txt
   python3 script.py 2> log.txt    # Errors are overwritten into log.txt
 ```
 
 The `&>` symbol allows you to push `stdout` **and** `stderr` to a file.
 
-```powershell
+```bash
   python3 script.py &> log.txt  # Outputs and Errors are overwritten into log.txt
 ```
 
@@ -228,7 +228,7 @@ The `&>` symbol allows you to push `stdout` **and** `stderr` to a file.
 
 The **Pipe Operator** lets you pipe a `stdout` into an `stdin`.
 
-```powershell
+```bash
   cat log.txt | read var  # Take the output and make it an input
   echo $var               # Outputs the file contents
 
