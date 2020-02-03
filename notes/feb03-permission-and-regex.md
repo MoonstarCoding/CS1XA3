@@ -149,3 +149,58 @@ The `find startdir [-flags] -name pattern` command will recursively find items s
 find . -maxdepth 1 -name dummy.pdf
   # searches current directory only for dummy.pdf
 ```
+
+> Note: Find supports Glob Patterns, but not Regex Patterns. Also, quote your Glob Pattern to prevent expansion.
+
+### Flags
+
+Limiters:
+
+- Find only files: `find . -type f -name "*.py"`
+- Find only directories: `find . -type d`
+
+Binary Operators:
+
+- Logical and: `find . -name "*.txt" -name "p*"`
+- Inclusive or: `find . -name "*.py" -or -name "*.sh"`
+- Not: `find . -not -name "b*"`
+
+## Piping Into XARGS
+
+When you pipe stdout into a command, the entire output is put into stdin as one input.
+
+```bash
+ls | rm
+  # tries to remove the entire utput of ls
+
+ls | xargs rm
+  # removes one by one
+```
+
+xargs is a command that takes one input and splits it by the delimiter; it breaks the stdout stream into multiple segments and pass it one at a time.
+
+### Using XARGS Input in Place
+
+Imagine we want to copy files found with find into a directory called `/tmp`.
+
+In order to get the arguments to cp in the correct order, we need to use the `-i` flag.
+
+```bash
+find . name *txt | xargs -i cp '{}' /tmp
+```
+
+Now, we are piping into the `'{}'` special character instead of at the end like piping normally does.
+
+> Note: Don't confuse this with **brace expansion**, it just is the default special character.
+
+You can use `xargs -I 'char'` to specify the special character you prefer instead of `'{}'`.
+
+### Living Dangerously
+
+When you break things up with `xargs`, you have to be careful. Files or Directories with spaces can screw things up, so you have to account for that.
+
+We tell find to replace the delimiter character using the flag `-print0` and inform xargs that it has changed as well.
+
+```bash
+find . -name *.txt -print0 | xargs -0 -i cp '{}' /tmp
+```
