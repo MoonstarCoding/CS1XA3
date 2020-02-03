@@ -115,7 +115,7 @@ echo {2..-2}
 
 ## Searching Lines of Text with GREP
 
-The `grep <pattern> <input>` command is a regex - _regular experesion_ - style searching command that will look for regex patterns in inputs.
+The `grep <pattern> <input>` command is a regex - _regular expression_ - style searching command that will look for regex patterns in inputs.
 
 ```bash
 cat file | grep 'Mark is God'
@@ -171,7 +171,7 @@ When you pipe stdout into a command, the entire output is put into stdin as one 
 
 ```bash
 ls | rm
-  # tries to remove the entire utput of ls
+  # tries to remove the entire output of ls
 
 ls | xargs rm
   # removes one by one
@@ -203,4 +203,15 @@ We tell find to replace the delimiter character using the flag `-print0` and inf
 
 ```bash
 find . -name *.txt -print0 | xargs -0 -i cp '{}' /tmp
+```
+
+### Piping into a While Loop
+
+If you pipe find into a while loop, follow the syntax below to prevent mistakes from occurring.
+
+```bash
+find . -type f -print0 | while IFS= read -d '' file
+do
+  echo $file
+done
 ```
