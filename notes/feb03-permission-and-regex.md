@@ -186,7 +186,7 @@ Imagine we want to copy files found with find into a directory called `/tmp`.
 In order to get the arguments to cp in the correct order, we need to use the `-i` flag.
 
 ```bash
-find . name *txt | xargs -i cp '{}' /tmp
+find . -name "*.txt" | xargs -i cp '{}' /tmp
 ```
 
 Now, we are piping into the `'{}'` special character instead of at the end like piping normally does.
