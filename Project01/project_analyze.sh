@@ -7,15 +7,15 @@ if [ $# -gt 0 ]; then
   # if user requested fixme_log function
   if [ $1 = "fixme_log" ]; then
 
-    tocuh CS1XA3/Project01/fixme.log
+    tocuh ./fixme.log
 
     # clear log file
-    echo "" >> CS1XA3/Project01/fixme.log
+    echo "" >> ./fixme.log
 
     # Find all files that contain the word '#FIXME'
-    find . -type f -print0 | xargs -0 -i grep -rlw '{}' -e '#FIXME' | while IFS= read -d '' file
+    find .. -type f -print0 | xargs -0 -i grep -rlw '{}' -e '#FIXME' | while IFS= read -d '' file
     do
-      echo cat $file | tail -1 |  xargs -i grep -rlw '{}' -e '#FIXME' > CS1XA3/Project01/fixme.log
+      echo cat $file | tail -1 |  xargs -i grep -rlw '{}' -e '#FIXME' > ./fixme.log
     done
 
   else
