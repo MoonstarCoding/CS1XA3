@@ -7,16 +7,24 @@ if [ $# -gt 0 ]; then
   # if user requested fixme_log function
   if [ $1 = "fixme_log" ]; then
 
-    # Find all files that contain the word '#FIXME'
-    find . -type f -print0 | xargs -0 -i grep -rlw '{}' -e '#FIXME' > CS1XA3/Project01/fixme.log
+    tocuh CS1XA3/Project01/fixme.log
 
-    exit 0
+    # clear log file
+    echo "" >> CS1XA3/Project01/fixme.log
+
+    # Find all files that contain the word '#FIXME'
+    find . -type f -print0 | xargs -0 -i grep -rlw '{}' -e '#FIXME' | while IFS= read -d '' file
+    do
+      echo cat $file | tail -1 |  xargs -i grep -rlw '{}' -e '#FIXME' > CS1XA3/Project01/fixme.log
+    done
 
   else
 
     # input is not a valid option
     echo "This input is not a valid input for this script."
     exit 1
+
+  fi
 
 else
 
@@ -25,3 +33,5 @@ else
   exit 1
 
 fi
+
+exit 0
