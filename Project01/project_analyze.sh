@@ -36,6 +36,14 @@ function checkout_merge () {
   fi
 }
 
+function file_size_list () {
+  ls -psRh | grep -v / | while read line; do
+    if [[ $line =~ ^[0-9] ]]; then
+      echo $line
+    fi
+  done
+}
+
 # User Input Checker
 
 if [ $# -gt 0 ]; then
