@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # find the location of the bash source:
-# Idea from https://stackoverflow.com/questions/24112727/relative-paths-based-on-file-location-instead-of-current-working-directory
+# Inspiration for parent_path variable: https://stackoverflow.com/questions/24112727/relative-paths-based-on-file-location-instead-of-current-working-directory
 
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")/.." ; pwd -P )
 # parent_path = /home/hutchm6/private/CS1XA3
@@ -23,10 +23,17 @@ function fixme_log () {
 
 function checkout_merge () {
   # Help on parsing first word from string line: https://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash
+  # Checking if variable is set: https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
 
-  commit=$(git log -i --grep="added" -1 --oneline | head)
+  key_word="merge"
+  commit=$(git log -i --grep="$key_word" -1 --oneline | head)
   set - $commit
-  git checkout $1
+
+  if [ -z ${1+x} ]; then
+    echo "No commit found with keyword \"$key_word\""
+  else
+    git checkout $1
+  fi
 }
 
 # User Input Checker

@@ -19,19 +19,29 @@ With the following possible arguments:
 
 - Description: The purpose of this feature is to search the CS1XA3 directory for all files with the word `#FIXME` in the last line. Those files will then be written to `CS1XA3/Project01/fixme.log`.
 - Arguments: The only argument to this function is the feature name: `fixme_log`
-- Execution: This feature is to be called as so:
+- Execution:
+
+This feature is to be called as so:
 
 ```bash
 CS1XA3/Project01/project_analyze.sh fixme_log
 ```
 
+- External Resources:
+  - Inspiration for the parent_path variable: <https://stackoverflow.com/questions/24112727/relative-paths-based-on-file-location-instead-of-current-working-directory>
+
 ## CHECKOUT MERGE
 
 - Description: The purpose of this feature is to find the last git commit that contains the word `merge` in its commit message. After that commit is found, the commit will be checked out and put the user in a detached head state.
 - Arguments: The only argument to this function is the feature name: `checkout_merge`
-- Execution: This feature is to be called as so:
+- Execution:
+
+This feature is to be called as so:
 
 ```bash
 CS1XA3/Project01/project_analyze.sh checkout_merge
 ```
 
+- External Resources:
+  - Parsing first word from string line: <https://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash>
+  - Checking if variable is set: <https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash>
