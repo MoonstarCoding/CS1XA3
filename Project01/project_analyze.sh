@@ -21,6 +21,14 @@ function fixme_log () {
   done
 }
 
+function checkout_merge () {
+  # Help on parsing first word from string line: https://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash
+
+  commit=$(git log -i --grep="added" -1 --oneline | head)
+  set - $commit
+  git checkout $1
+}
+
 # User Input Checker
 
 if [ $# -gt 0 ]; then
@@ -31,6 +39,13 @@ if [ $# -gt 0 ]; then
       exit 1
     else
       fixme_log
+    fi
+  elif [ $1 = "checkout_merge" ]; then
+    if [ $# -gt 1 ]; then
+      echo "Too many arguments given to checkout_merge feature"
+      exit 1
+    else
+      checkout_merge
     fi
   else
     # input is not a valid option
