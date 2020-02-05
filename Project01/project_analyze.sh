@@ -36,14 +36,6 @@ function checkout_merge () {
   fi
 }
 
-function file_size_list () {
-  ls -psRh | grep -v / | while read line; do
-    if [[ $line =~ ^[0-9] ]]; then
-      echo $line
-    fi
-  done
-}
-
 # User Input Checker
 
 if [ $# -gt 0 ]; then
@@ -61,6 +53,21 @@ if [ $# -gt 0 ]; then
       exit 1
     else
       checkout_merge
+    fi
+  elif [ $1 = "ls_size" ]; then
+    if [ $# -gt 2 ]; then
+      echo "Too many arguments given to ls_size feature"
+      exit 1
+    else
+      # Human Readable Format Inspiration: https://stackoverflow.com/questions/64649/how-do-i-get-the-find-command-to-print-out-the-file-size-with-the-file-name
+
+      if [ -z "$2" ]; then
+        desired_path="$parent_path"
+      else
+        desired_path="$2"
+      fi
+
+      find "$desired_path" -type f -printf "%kKB %p\n" | sort -nr | column -t
     fi
   else
     # input is not a valid option

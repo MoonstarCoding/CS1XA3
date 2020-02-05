@@ -45,3 +45,20 @@ CS1XA3/Project01/project_analyze.sh checkout_merge
 - External Resources:
   - Parsing first word from string line: <https://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash>
   - Checking if variable is set: <https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash>
+
+## LS_SIZE
+
+- Description:
+- Arguments:
+  - `ls_size`: The required feature name for calling
+  - `directory`: This argument will allow you to specify what directory the feature starts at. The default value is the `Git Root` directory.
+- Execution:
+
+This feature is to be called as so:
+
+```bash
+CS1XA3/Project01/project_analyze.sh ls_size <directory>
+```
+
+- External Resources:
+  - Human Readable Format via `printf`: <https://stackoverflow.com/questions/64649/how-do-i-get-the-find-command-to-print-out-the-file-size-with-the-file-name>
