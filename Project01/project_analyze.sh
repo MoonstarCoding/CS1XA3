@@ -76,7 +76,7 @@ if [ $# -gt 0 ]; then
   fi
 else
   # the script has not been given any inputs, exit with error
-  echo "No argument given to file."
+  echo "No argument given to file. All user input must be given through arguments."
   exit 1
 fi
 
