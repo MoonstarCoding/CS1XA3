@@ -9,14 +9,14 @@ parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")/.." ; pwd -P )
 # Functions
 
 function fixme_log () {
-  # Attempt to remove the previous log file, or create it if you can't
-  rm "$parent_path/Project01/fixme.log" || touch "$parent_path/Project01/fixme.log"
-  # Fill it with nothing to be safe
-  echo "" >> "$parent_path/Project01/fixme.log"
+  # If file already exists, delete it and replace it
+  [[ -f "$parent_path/Project01/fixme.log" ]] && rm "$parent_path/Project01/fixme.log"
+  # Make the file
+  touch "$parent_path/Project01/fixme.log"
   # Find all files that contain the word '#FIXME'
   find "$parent_path/" -type f -print0 | while IFS= read -d '' file; do
     if tail -1 $file | grep -q "#FIXME"; then
-        echo "$file" > "$parent_path/Project01/fixme.log"
+        echo "$file" >> "$parent_path/Project01/fixme.log"
     fi
   done
 }
