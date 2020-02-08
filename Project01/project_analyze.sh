@@ -69,6 +69,26 @@ if [ $# -gt 0 ]; then
 
       find "$desired_path" -type f -printf "%kKB %p\n" | sort -nr | column -t
     fi
+  elif [ $1 = "count_type" ]; then
+    if [ -z "$2" ]; then
+      desired_path="$parent_path"
+    else
+      desired_path="$2"
+    fi
+
+    read -p 'File Extension: ' extension
+
+    if [ ! -z "$extension" ]; then
+      count=$(find "$desired_path" -type f -name "*.$extension" | wc -l)
+      if [ $count -eq 1 ]; then
+        echo "There is 1 file ending in $extension in $desired_path."
+      else
+        echo "There are $count files ending in $extension in $desired_path."
+      fi
+    else
+      count=$(find "$desired_path" -type f | wc -l)
+      echo "No extension given: there are $count files in $desired_path."
+    fi
   else
     # input is not a valid option
     echo "This input is not a valid input for this script."

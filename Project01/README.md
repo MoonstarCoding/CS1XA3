@@ -48,7 +48,7 @@ CS1XA3/Project01/project_analyze.sh checkout_merge
 
 ## LS_SIZE
 
-- Description:
+- Description: List the file size and filename of every file with in a directory and sub directories in human readable format.
 - Arguments:
   - `ls_size`: The required feature name for calling
   - `directory`: This argument will allow you to specify what directory the feature starts at. The default value is the `Git Root` directory.
@@ -62,3 +62,18 @@ CS1XA3/Project01/project_analyze.sh ls_size <directory>
 
 - External Resources:
   - Human Readable Format via `printf`: <https://stackoverflow.com/questions/64649/how-do-i-get-the-find-command-to-print-out-the-file-size-with-the-file-name>
+
+## COUNT_TYPE
+
+- Description: Count how many files in a directory end in a user specified extension. If no extension is given, it will count how many files there are.
+- Arguments:
+  - `count_type`: The required feature name for calling
+  - `directory`: This argument will allow you to specify what directory the feature starts at. The default value is the `Git Root` directory.
+  - `extension`: Once the script is run, you will be prompted to input a file extension. Failure to do so will result in a count of all files in a directory.
+- Execution:
+
+This feature is to be called as so:
+
+```bash
+CS1XA3/Project01/project_analyze.sh count_type <directory>
+```
