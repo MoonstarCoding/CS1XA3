@@ -1,0 +1,12 @@
+:root {
+  --background-color: #272727;
+  --text-color: #eee;
+  --link-color: antiquewhite;
+  --link-hover: lighten(antiquewhite, 10%);
+  --link-focus: shade(antiquewhite, 10%);
+  --card-header-background-color: #858585;
+  --card-header-text-color: #eee;
+  --card-body-background-color: #bdbdbd;
+  --card-body-text-color: #272727;
+  --card-radius: 0.75rem;
+}

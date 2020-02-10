@@ -1,0 +1,24 @@
+.card {
+  min-width: 40vw;
+  max-width: 60vw;
+
+  min-height: 15vh;
+
+  &__header {
+    background-color: var(--card-header-background-color);
+    color: var(--card-header-text-color);
+    border-top-right-radius: var(--card-radius);
+    border-top-left-radius: var(--card-radius);
+    min-height: 15%;
+    padding: 0.5rem;
+  }
+
+  &__body {
+    background-color: var(--card-body-background-color);
+    color: var(--card-body-text-color);
+    height: 85%;
+    padding: 0.5rem;
+    border-bottom-right-radius: var(--card-radius);
+    border-bottom-left-radius: var(--card-radius);
+  }
+}

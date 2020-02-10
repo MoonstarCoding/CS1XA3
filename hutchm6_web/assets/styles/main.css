@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+:root {
+  --background-color: #272727;
+  --text-color: #eee;
+  --link-color: antiquewhite;
+  --link-hover: lighten(antiquewhite, 10%);
+  --link-focus: shade(antiquewhite, 10%);
+  --card-header-background-color: #858585;
+  --card-header-text-color: #eee;
+  --card-body-background-color: #bdbdbd;
+  --card-body-text-color: #272727;
+  --card-radius: 0.75rem;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: ". header header header ." ". main main main ." ". main main main ." ". main main main ." ". footer footer footer .";
+  -ms-grid-columns: 5vw 30vw 30vw 30vw 5vw;
+      grid-template-columns: 5vw 30vw 30vw 30vw 5vw;
+  -ms-grid-rows: 16vh (25vh)[3] 9vh;
+      grid-template-rows: 16vh repeat(3, 25vh) 9vh;
+}
+
+header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-area: header;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header h1,
+header h2 {
+  margin: 0.25rem 0;
+}
+
+main {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-area: main;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+footer {
+  -ms-grid-row: 5;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-area: footer;
+  display: inline-block;
+  margin: auto auto;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.card {
+  min-width: 40vw;
+  max-width: 60vw;
+  min-height: 15vh;
+}
+
+.card__header {
+  background-color: var(--card-header-background-color);
+  color: var(--card-header-text-color);
+  border-top-right-radius: var(--card-radius);
+  border-top-left-radius: var(--card-radius);
+  min-height: 15%;
+  padding: 0.5rem;
+}
+
+.card__body {
+  background-color: var(--card-body-background-color);
+  color: var(--card-body-text-color);
+  height: 85%;
+  padding: 0.5rem;
+  border-bottom-right-radius: var(--card-radius);
+  border-bottom-left-radius: var(--card-radius);
+}
+
+a,
+.link {
+  color: var(--link-color);
+  text-decoration: none;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+}
+
+a:hover,
+.link:hover {
+  color: var(--link-hover);
+}
+
+a:focus,
+.link:focus {
+  color: var(--link-focus);
+}
+/*# sourceMappingURL=main.css.map */

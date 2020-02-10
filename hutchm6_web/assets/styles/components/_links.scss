@@ -1,0 +1,15 @@
+a,
+.link {
+  color: var(--link-color);
+  text-decoration: none;
+
+  transition: ease-in-out 0.3s;
+
+  &:hover {
+    color: var(--link-hover);
+  }
+
+  &:focus {
+    color: var(--link-focus);
+  }
+}

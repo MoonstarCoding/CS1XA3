@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  font-family: 'Montserrat',
+    sans-serif;
+
+  display: grid;
+  grid-template-areas: ". header header header ."
+    ". main main main ."
+    ". main main main ."
+    ". main main main ."
+    ". footer footer footer .";
+  grid-template-columns: 5vw 30vw 30vw 30vw 5vw;
+  grid-template-rows: 16vh repeat(3, 25vh) 9vh;
+}
+
+header {
+  grid-area: header;
+  @include center();
+  flex-direction: column;
+
+  h1,
+  h2 {
+    margin: 0.25rem 0;
+  }
+}
+
+main {
+  grid-area: main;
+  @include center();
+  flex-direction: column;
+}
+
+footer {
+  grid-area: footer;
+
+  display: inline-block;
+  margin: auto auto;
+  padding-bottom: 1rem;
+
+  text-align: center;
+}
