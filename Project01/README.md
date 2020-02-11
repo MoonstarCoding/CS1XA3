@@ -31,7 +31,7 @@ CS1XA3/Project01/project_analyze.sh fixme_log
 - External Resources:
   - Inspiration for the parent_path variable: <https://stackoverflow.com/questions/24112727/relative-paths-based-on-file-location-instead-of-current-working-directory>
 
-## CHECKOUT MERGE
+## CHECKOUT LATEST MERGE
 
 - Description: The purpose of this feature is to find the last git commit that contains the word `merge` in its commit message. After that commit is found, the commit will be checked out and put the user in a detached head state.
 - Arguments: The only argument to this function is the feature name: `checkout_merge`
@@ -47,7 +47,7 @@ CS1XA3/Project01/project_analyze.sh checkout_merge
   - Parsing first word from string line: <https://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash>
   - Checking if variable is set: <https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash>
 
-## LS_SIZE
+## FILE SIZE LIST
 
 - Description: List the file size and filename of every file with in a directory and sub directories in human readable format.
 - Arguments:
@@ -64,7 +64,7 @@ CS1XA3/Project01/project_analyze.sh ls_size <directory>
 - External Resources:
   - Human Readable Format via `printf`: <https://stackoverflow.com/questions/64649/how-do-i-get-the-find-command-to-print-out-the-file-size-with-the-file-name>
 
-## COUNT_TYPE
+## FILE TYPE COUNT
 
 - Description: Count how many files in a directory end in a user specified extension. If no extension is given, it will count how many files there are.
 - Arguments:
