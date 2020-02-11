@@ -5,7 +5,8 @@
 Execute the script from root using the following command:
 
 ```bash
-chmod +x CS1XA3/Project01/project_analyze.sh feature arg1 ...
+chmod +x CS1XA3/Project01/project_analyze.sh
+./CS1XA3/Project01/project_analyze.sh feature arg1 ...
 ```
 
 With the following possible arguments:
