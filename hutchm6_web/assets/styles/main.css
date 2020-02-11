@@ -23,7 +23,7 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   min-height: 100vh;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   display: -ms-grid;
   display: grid;
       grid-template-areas: ". header header header ." ". main main main ." ". main main main ." ". main main main ." ". footer footer footer .";
@@ -31,6 +31,16 @@ body {
       grid-template-columns: 5vw 30vw 30vw 30vw 5vw;
   -ms-grid-rows: 16vh (25vh)[3] 9vh;
       grid-template-rows: 16vh repeat(3, 25vh) 9vh;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+        grid-template-areas: "." "header" "main" "footer";
+    -ms-grid-rows: 3vh 17vh 65vh 8vh;
+        grid-template-rows: 3vh 17vh 65vh 8vh;
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+  }
 }
 
 header {
