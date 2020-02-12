@@ -31,6 +31,8 @@ function checkout_merge () {
   commit=$(git log -i --grep="$key_word" -1 --oneline | head)
   set - $commit
 
+  git stash
+
   if [ -z ${1+x} ]; then
     echo "No commit found with keyword \"$key_word\""
   else
