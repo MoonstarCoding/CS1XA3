@@ -15,7 +15,7 @@ function fixme_log () {
   touch "$parent_path/Project01/fixme.log"
 
   # Find all files that contain the word '#FIXME'
-  find "$parent_path/" -type f -not -path "$parent_path/.git/*" -not -path "$parent_path/.vs/*" -not -path "$parent_path/.vscode/*" -print0 | while IFS= read -d '' file; do
+  find "$parent_path/*" -type f -iname "*" -print0 | while IFS= read -d '' file; do
     if tail -1 "$file" | grep -q "#FIXME"; then
         echo "$file" >> "$parent_path/Project01/fixme.log"
     fi
@@ -30,8 +30,6 @@ function checkout_merge () {
   key_word="merge"
   commit=$(git log -i --grep="$key_word" -1 --oneline | head)
   set - $commit
-
-  git stash
 
   if [ -z ${1+x} ]; then
     echo "No commit found with keyword \"$key_word\""
@@ -71,7 +69,7 @@ if [ $# -gt 0 ]; then
         desired_path="$2"
       fi
 
-      find "$desired_path" -type f -printf "%kKB %p\n" | sort -nr | column -t
+      find "$desired_path" -type f -iname "*" -printf "%kKB %p\n" | sort -nr | column -t
     fi
   elif [ $1 = "count_type" ]; then
     if [ -z "$2" ]; then
