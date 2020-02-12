@@ -2,6 +2,7 @@
 
 ## Usage
 
+User Input for this script is done through arguments. Any feature that requires additional prompts to function will prompt you when the feature is run.
 Execute the script from root using the following command:
 
 ```bash
