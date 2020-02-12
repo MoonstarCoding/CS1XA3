@@ -57,7 +57,7 @@ if [ $# -gt 0 ]; then
       checkout_merge
     fi
   elif [ $1 = "ls_size" ]; then
-    if [ $# -gt 2 ]; then
+    if [ $# -gt 3 ]; then
       echo "Too many arguments given to ls_size feature"
       exit 1
     else
@@ -69,10 +69,18 @@ if [ $# -gt 0 ]; then
         desired_path="$2"
       fi
 
-      OLDPWD=$PWD
-      cd "$desired_path"
-      find . -type f -iname "*" -print0 | xargs -r0 du -h | sort -hr
-      cd $OLDPWD
+      if [ -z "$3" ]; then
+        if [ "$3" -eq 1 ]; then
+          OLDPWD=$PWD
+          cd "$desired_path"
+          find . -type f -iname "*" -print0 | xargs -r0 du -h | sort -hr
+          cd $OLDPWD
+        else
+          find "$desired_path" -type f -iname "*" -print0 | xargs -r0 du -h | sort -hr
+        fi
+      else
+        find "$desired_path" -type f -iname "*" -print0 | xargs -r0 du -h | sort -hr
+      fi
     fi
   elif [ $1 = "count_type" ]; then
     if [ -z "$2" ]; then

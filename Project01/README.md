@@ -52,16 +52,17 @@ CS1XA3/Project01/project_analyze.sh checkout_merge
 
 ## FILE SIZE LIST
 
-- Description: List the file size and filename of every file with in a directory and sub directories in human readable format.
+- Description: List the file size and relative filename of every file with in a directory and sub directories in human readable format.
 - Arguments:
   - **`ls_size`**: The required feature name for calling the feature.
   - `directory`: This argument will allow you to specify what directory the feature starts at. The default value is the `Git Root` directory.
+  - `relative`: If this value is set to 1, this will shorten the absolute file directories to be relative to the specified directory. If you are in the CS1XA3 folder, simply put a `.` for relative file names.
 - Execution:
 
 This feature is to be called as so:
 
 ```bash
-CS1XA3/Project01/project_analyze.sh ls_size <directory>
+CS1XA3/Project01/project_analyze.sh ls_size <directory> <relative: 1>
 ```
 
 - External Resources:
@@ -101,23 +102,24 @@ CS1XA3/Project01/project_analyze.sh new_git repo_name <branch_name>
 
 - Description: Using the `bc` command, this feature will let you do a variety of mathematical operations. Each operation will require different inputs, so this will be done with user prompts in the script.
 - Arguments:
+
   - **`calc`**: The required feature name for calling the feature.
   - `operation`: This allows you to specify the operation by an **integer** if you already know which operation you would like.
     - If left blank, the script will ask you to choose from a series of operations you would like to pick from, listed below.
-        1. Addition
-        2. Subtraction
-        3. Multiplication
-        4. Division
-        5. Power
-        6. Square Root
-        7. Integer Division
-        8. Modulus
-        9. Quadratic Solver
-        10. Cubic Solver
-        11. Fraction Addition
-        12. Fraction Subtraction
-        13. Fraction Multiplication
-        14. Fraction Division
+      1. Addition
+      2. Subtraction
+      3. Multiplication
+      4. Division
+      5. Power
+      6. Square Root
+      7. Integer Division
+      8. Modulus
+      9. Quadratic Solver
+      10. Cubic Solver
+      11. Fraction Addition
+      12. Fraction Subtraction
+      13. Fraction Multiplication
+      14. Fraction Division
   - `scale`: This allows you to specify the how many decimal points you would like from 0-6. The default is 2.
 
 - Execution:
