@@ -65,7 +65,7 @@ CS1XA3/Project01/project_analyze.sh ls_size <directory>
 ```
 
 - External Resources:
-  - Human Readable Format via `printf`: <https://stackoverflow.com/questions/64649/how-do-i-get-the-find-command-to-print-out-the-file-size-with-the-file-name>
+  - Human Readable Format via `du` command: <https://www.cyberciti.biz/faq/linux-unix-bsd-appleox-du-output-in-gbmbpbtb/>
 
 ## FILE TYPE COUNT
 

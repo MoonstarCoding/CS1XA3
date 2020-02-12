@@ -15,7 +15,7 @@ function fixme_log () {
   touch "$parent_path/Project01/fixme.log"
 
   # Find all files that contain the word '#FIXME'
-  find "$parent_path/*" -type f -iname "*" -print0 | while IFS= read -d '' file; do
+  find "$parent_path/" -type f -iname "*" -not -path "$parent_path/.git/*" -print0 | while IFS= read -d '' file; do
     if tail -1 "$file" | grep -q "#FIXME"; then
         echo "$file" >> "$parent_path/Project01/fixme.log"
     fi
@@ -61,7 +61,7 @@ if [ $# -gt 0 ]; then
       echo "Too many arguments given to ls_size feature"
       exit 1
     else
-      # Human Readable Format Inspiration: https://stackoverflow.com/questions/64649/how-do-i-get-the-find-command-to-print-out-the-file-size-with-the-file-name
+      # Human Readable Format Inspiration: https://www.cyberciti.biz/faq/linux-unix-bsd-appleox-du-output-in-gbmbpbtb/
 
       if [ -z "$2" ]; then
         desired_path="$parent_path"
@@ -69,7 +69,10 @@ if [ $# -gt 0 ]; then
         desired_path="$2"
       fi
 
-      find "$desired_path" -type f -iname "*" -printf "%kKB %p\n" | sort -nr | column -t
+      OLDPWD=$PWD
+      cd "$desired_path"
+      find . -type f -iname "*" -print0 | xargs -r0 du -h | sort -hr
+      cd $OLDPWD
     fi
   elif [ $1 = "count_type" ]; then
     if [ -z "$2" ]; then
