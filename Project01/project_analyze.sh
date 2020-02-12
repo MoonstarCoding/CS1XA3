@@ -11,14 +11,16 @@ parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")/.." ; pwd -P )
 function fixme_log () {
   # If file already exists, delete it and replace it
   [[ -f "$parent_path/Project01/fixme.log" ]] && rm "$parent_path/Project01/fixme.log"
-  # Make the file
+
   touch "$parent_path/Project01/fixme.log"
+
   # Find all files that contain the word '#FIXME'
-  find "$parent_path/" -type f -print0 | while IFS= read -d '' file; do
-    if tail -1 $file | grep -q "#FIXME"; then
+  find "$parent_path/" -type f -not -path "$parent_path/.git/*" -not -path "$parent_path/.vs/*" -not -path "$parent_path/.vscode/*" -print0 | while IFS= read -d '' file; do
+    if tail -1 "$file" | grep -q "#FIXME"; then
         echo "$file" >> "$parent_path/Project01/fixme.log"
     fi
   done
+  echo "fixme_log has completed it's search."
 }
 
 function checkout_merge () {
