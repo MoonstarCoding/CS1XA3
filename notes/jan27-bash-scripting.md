@@ -178,7 +178,7 @@ done
 Finally, the case statement. This is a just an over-glorified `if elif else` chain.
 
 ```bash
-case  $variable  in
+case $variable in
   pattern1|pattern2|pattern3)
     command1
     ...
