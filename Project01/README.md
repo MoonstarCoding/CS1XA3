@@ -19,7 +19,7 @@ With the following possible arguments:
 
 ## FIXME LOG
 
-- Description: The purpose of this feature is to search the CS1XA3 directory for all files with the word `#FIXME` in the last line. Those files will then be written to `CS1XA3/Project01/fixme.log`.
+- Description: The purpose of this feature is to search the CS1XA3 directory for all files with the word `#FIXME` in the last line. Those files will then be written to `CS1XA3/Project01/fixme.log`. Any files in the `.git` folder will be ignored.
 - Arguments:
   - **`fixme_log`**: The required feature name for calling the feature.
 - Execution:
@@ -52,7 +52,7 @@ CS1XA3/Project01/project_analyze.sh checkout_merge
 
 ## FILE SIZE LIST
 
-- Description: List the file size and relative filename of every file with in a directory and sub directories in human readable format.
+- Description: List the file size and relative filename of **every** file, hidden and contents of .git folder if included, with in a directory and sub directories in human readable format.
 - Arguments:
   - **`ls_size`**: The required feature name for calling the feature.
   - `directory`: This argument will allow you to specify what directory the feature starts at. The default value is the `Git Root` directory.
