@@ -8,21 +8,6 @@ parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")/.." ; pwd -P )
 
 # Functions
 
-function fixme_log () {
-  # If file already exists, delete it and replace it
-  [[ -f "$parent_path/Project01/fixme.log" ]] && rm "$parent_path/Project01/fixme.log"
-
-  touch "$parent_path/Project01/fixme.log"
-
-  # Find all files that contain the word '#FIXME'
-  find "$parent_path/" -type f -iname "*" -not -path "$parent_path/.git/*" -print0 | while IFS= read -d '' file; do
-    if tail -1 "$file" | grep -q "#FIXME"; then
-        echo "$file" >> "$parent_path/Project01/fixme.log"
-    fi
-  done
-  echo "fixme_log has completed it's search."
-}
-
 function checkout_merge () {
   # Help on parsing first word from string line: https://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash
   # Checking if variable is set: https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
@@ -42,14 +27,7 @@ function checkout_merge () {
 
 if [ $# -gt 0 ]; then
   # if user requested fixme_log function
-  if [ $1 = "fixme_log" ]; then
-    if [ $# -gt 1 ]; then
-      echo "Too many arguments given to fixme_log feature"
-      exit 1
-    else
-      fixme_log
-    fi
-  elif [ $1 = "checkout_merge" ]; then
+  if [ $1 = "checkout_merge" ]; then
     if [ $# -gt 1 ]; then
       echo "Too many arguments given to checkout_merge feature"
       exit 1
