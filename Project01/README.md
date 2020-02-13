@@ -121,7 +121,8 @@ CS1XA3/Project01/project_analyze.sh new_git repo_name <branch_name> <"commit_mes
       12. Fraction Subtraction
       13. Fraction Multiplication
       14. Fraction Division
-  - `scale`: This allows you to specify the how many decimal points you would like from 0-6. The default is 2.
+      15. Fraction Simplification
+  - `scale`: This allows you to specify the how many decimal points you would like. The default is 2.
 
 - Execution:
 

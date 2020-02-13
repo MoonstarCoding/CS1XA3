@@ -15,7 +15,6 @@ function mod () {
 
 function quad () {
   deter=$(echo "$b^2 - (4 * $a * $c)" | bc -l)
-  echo "$deter"
   if [ $deter -lt 0 ]; then
     echo "The discriminant is less than 0: There are no real roots."
     exit 1
