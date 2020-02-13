@@ -26,6 +26,39 @@ function quad () {
   fi
 }
 
+function cubic () {
+  if [ $a -eq 0 ]; then
+    echo "If a is 0, it isn't cubic."
+    exit 1
+  else
+    p=$(echo "$b / (3 * $a)" | bc -l)
+    q=$(echo "((3 * $a * $c) - ($b ^ 2)) / (9 * ($a ^ 2))" | bc -l)
+    r=$(echo "((9 * $a * $b * $c) - (27 * ($a ^ 2) * $d) - (2 * ($b ^ 3))) / (54 * ($a ^ 3))" | bc -l)
+
+    discriminant=$(echo "($q ^ 3) + ($r ^ 2)" | bc -l)
+
+    if [ $(echo "$discriminant <= 0 && $r == 0" | bc -l) ]; then
+      s="0"
+      t="0"
+    else
+      s=$(echo "e(l($r + sqrt($discriminant))/3)" | bc -l)
+      t=$(echo "e(l($r - sqrt($discriminant))/3)" | bc -l)
+    fi
+
+    x1=$(echo "scale=$scale; $s + $t - $p" | bc -l)
+
+    if [ $(echo "$s == 0 && $t == 0" | bc -l) ]; then
+      echo "The root that could be solved was $x1."
+      exit 0
+    fi
+
+    real=$(echo "scale=$scale; -(($s + $t) / 2) - $p" | bc -l)
+    imag=$(echo "scale=$scale; ((sqrt(3) / 2) * ($s - $t))" | bc -l)
+
+    echo "The root that could be solved was $x1. X2 and X3 involve complex numbers, $real +/- i$imag."
+  fi
+}
+
 scale="$2"
 num1="$3"
 case $1 in
@@ -72,6 +105,13 @@ case $1 in
     b="$4"
     c="$5"
     quad
+    ;;
+  '10')
+    a="$3"
+    b="$4"
+    c="$5"
+    d="$6"
+    cubic
     ;;
   *)
     #CODE
