@@ -17,6 +17,22 @@ With the following possible arguments:
 - **feature** - Feature Argument: This argument will let you specify the feature you desire out of the features below. Refer to feature documentation for more information.
 - _arg1_: Depending on the feature, additionally arguments may be called for. Refer to feature documentation for more information.
 
+## FIXME LOG
+
+- Description: The purpose of this feature is to search the CS1XA3 directory for all files with the word `#FIXME` in the last line. Those files will then be written to `CS1XA3/Project01/fixme.log`. Any files in the `.git` folder will be ignored.
+- Arguments:
+  - **`fixme_log`**: The required feature name for calling the feature.
+- Execution:
+
+This feature is to be called as so:
+
+```bash
+CS1XA3/Project01/project_analyze.sh fixme_log
+```
+
+- External Resources:
+  - Inspiration for the parent_path variable: <https://stackoverflow.com/questions/24112727/relative-paths-based-on-file-location-instead-of-current-working-directory>
+
 ## CHECKOUT LATEST MERGE
 
 - Description: The purpose of this feature is to find the last git commit that contains the word `merge` in its commit message. After that commit is found, the commit will be checked out and put the user in a detached head state.

@@ -27,7 +27,14 @@ function checkout_merge () {
 
 if [ $# -gt 0 ]; then
   # if user requested fixme_log function
-  if [ $1 = "checkout_merge" ]; then
+  if [ $1 = "fixme_log" ]; then
+    if [ $# -gt 1 ]; then
+      echo "Too many arguments given to fixme_log feature"
+      exit 1
+    else
+      fixme_log
+    fi
+  elif [ $1 = "checkout_merge" ]; then
     if [ $# -gt 1 ]; then
       echo "Too many arguments given to checkout_merge feature"
       exit 1
