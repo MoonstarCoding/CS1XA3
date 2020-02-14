@@ -14,13 +14,15 @@ body {
 
   display: grid;
   grid-template-areas:
-    ". header header header ."
+    "header header header header header"
+    "nav nav nav nav nav"
     ". main main main ."
     ". main main main ."
     ". main main main ."
-    ". footer footer footer .";
-  grid-template-columns: 5vw 30vw 30vw 30vw 5vw;
-  grid-template-rows: 16vh repeat(3, 25vh) 9vh;
+    ". footer footer footer ."
+    "bottom bottom bottom bottom bottom";
+  grid-template-columns: 0.1fr 1fr 1fr 1fr 0.1fr;
+  grid-template-rows: 0.5fr 0.15fr 1fr 1fr 1fr 0.3fr 0.1fr;
 }
 
 @media screen and (max-width: 800px) {
@@ -28,10 +30,12 @@ body {
     grid-template-areas:
       "."
       "header"
+      "nav"
       "main"
-      "footer";
-    grid-template-rows: 3vh 17vh 65vh 8vh;
-    grid-template-columns: auto;
+      "footer"
+      "bottom";
+    grid-template-rows: 0.1fr 0.5fr auto 1fr 0.3fr 0.1fr;
+    grid-template-columns: 100%;
   }
 }
 
@@ -39,6 +43,8 @@ header {
   grid-area: header;
   @include center();
   flex-direction: column;
+
+  background-color: darken($color: #272727, $amount: 5);
 
   h1,
   h2 {
@@ -55,9 +61,13 @@ main {
 footer {
   grid-area: footer;
 
+  @include center();
+  flex-direction: column;
+}
+
+#bottom {
+  grid-area: bottom;
   display: inline-block;
   margin: auto auto;
-  padding-bottom: 1rem;
-
   text-align: center;
 }
