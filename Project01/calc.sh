@@ -86,6 +86,45 @@ function frac_add () {
   fi
 }
 
+function frac_mult () {
+  re='^[+-]?[0-9]+$'
+  if ! [[ $d1 =~ $re ]] ; then
+    echo "error: $d1 is not an Integer" >&2; exit 1
+  fi
+  if ! [[ $d2 =~ $re ]] ; then
+    echo "error: $d2 is not an Integer" >&2; exit 1
+  fi
+  if ! [[ $n1 =~ $re ]] ; then
+    echo "error: $n1 is not an Integer" >&2; exit 1
+  fi
+  if ! [[ $n2 =~ $re ]] ; then
+    echo "error: $n2 is not an Integer" >&2; exit 1
+  fi
+
+  numerator=$(($n1 * $n2))
+  denominator=$(($d1 * $d2))
+  echo "Your answer is the fraction: $numerator / $denominator"
+}
+
+function frac_simp () {
+# Due to Bash not having good function input parameters, I used a python shell in Bash for this. If bash scripting could let you define parameters, then this would be easy to translate into a bash script.
+PYOUT=$(
+python - <<EOF
+numerator = $numerator
+denominator = $denominator
+
+def GCD(num1, num2):
+  if num2 == 0:
+    return num1
+  else:
+    return GCD(num2, num1 % num2)
+commonDivisor = GCD(denominator,numerator)
+print("The simplified fraction is {} / {}.".format(numerator/commonDivisor, denominator/commonDivisor))
+EOF
+)
+echo $PYOUT
+}
+
 scale="$2"
 num1="$3"
 case $1 in
@@ -163,8 +202,32 @@ case $1 in
 
     frac_add
     ;;
+  '13' | 'frac_mult')
+    n1="$3"
+    n2="$5"
+    d1="$4"
+    d2="$6"
+
+    frac_mult
+    ;;
+  '14' | 'frac_div')
+    n1="$3"
+    n2="$6"
+    d1="$4"
+    d2="$5"
+
+    frac_mult
+    ;;
+  '15' | 'frac_simp')
+    numerator="$3"
+    denominator="$4"
+
+    frac_simp $denominator $numerator
+    ;;
   *)
-    #CODE
+    RED='\033[0;31m' # Red Colour
+    NC='\033[0m'     # No Colour
+    printf "${RED}WARNING: ${NC}Invalid Calculation Code Passed.\nPlease double check inputs and try again.\n" ; exit 1
     ;;
 esac
 
