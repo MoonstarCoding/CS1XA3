@@ -3,7 +3,7 @@
 ## Usage
 
 User Input for this script is done through arguments. Any feature that requires additional prompts to function will prompt you when the feature is run.
-Execute the script from the file outside of the repository using the following command:
+Execute the script from root using the following command:
 
 ```bash
 chmod +x CS1XA3/Project01/project_analyze.sh
@@ -121,8 +121,7 @@ CS1XA3/Project01/project_analyze.sh new_git repo_name <branch_name> <"commit_mes
       12. Fraction Subtraction
       13. Fraction Multiplication
       14. Fraction Division
-      15. Fraction Simplification
-  - `scale`: This allows you to specify the how many decimal points you would like. The default is 2.
+  - `scale`: This allows you to specify the how many decimal points you would like from 0-6. The default is 2.
 
 - Execution:
 
