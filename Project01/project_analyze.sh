@@ -273,9 +273,11 @@ if [ $# -gt 0 ]; then
       scale="2"
     fi
     if [ -z "$2" ]; then
-      echo "Required Input for Operation missing. Please refer to README.md for information on Calculator Feature."; exit 1
+      read -p "What operation would you like to perform? " oper
+    else
+      oper="$2"
     fi
-    case "$2" in
+    case "$oper" in
       '1' | 'add')
         echo "Addition: "
         read -p "What is the first number? " num1

@@ -17,21 +17,6 @@ With the following possible arguments:
 - **feature** - Feature Argument: This argument will let you specify the feature you desire out of the features below. Refer to feature documentation for more information.
 - _arg1_: Depending on the feature, additionally arguments may be called for. Refer to feature documentation for more information.
 
-## FIXME LOG
-
-- Description: The purpose of this feature is to search the CS1XA3 directory for all files with the word `#FIXME` in the last line. Those files will then be written to `CS1XA3/Project01/fixme.log`. Any files in the `.git` folder will be ignored.
-- Arguments:
-  - **`fixme_log`**: The required feature name for calling the feature.
-- Execution:
-
-This feature is to be called as so:
-
-```bash
-CS1XA3/Project01/project_analyze.sh fixme_log
-```
-
-- External Resources:
-  - Inspiration for the parent_path variable: <https://stackoverflow.com/questions/24112727/relative-paths-based-on-file-location-instead-of-current-working-directory>
 
 ## CHECKOUT LATEST MERGE
 
@@ -121,6 +106,7 @@ CS1XA3/Project01/project_analyze.sh new_git repo_name <branch_name> <"commit_mes
       12. Fraction Subtraction
       13. Fraction Multiplication
       14. Fraction Division
+      15. Fraction Simplification
   - `scale`: This allows you to specify the how many decimal points you would like from 0-6. The default is 2.
 
 - Execution:
@@ -133,3 +119,32 @@ CS1XA3/Project01/project_analyze.sh calc <operation> <scale>
 
 - External Resources:
   - Inspiration for the idea: <https://stackoverflow.com/questions/14350556/creating-a-calculator-script>
+
+## FIXME LOG
+
+- Description: The purpose of this feature is to search the CS1XA3 directory for all files with the word `#FIXME` in the last line. Those files will then be written to `CS1XA3/Project01/fixme.log`. Any files in the `.git` folder will be ignored.
+- Arguments:
+  - **`fixme_log`**: The required feature name for calling the feature.
+- Execution:
+
+This feature is to be called as so:
+
+```bash
+CS1XA3/Project01/project_analyze.sh fixme_log
+```
+
+- External Resources:
+  - Inspiration for the parent_path variable: <https://stackoverflow.com/questions/24112727/relative-paths-based-on-file-location-instead-of-current-working-directory>
+
+## FIND TAG
+
+- Description: When called, this feature will prompt the user for a word. Once given the word, it will search all Python files (ending in .py) within the CS1XA3 directory. It will take all lines that contain the tag word and put them in `./CS1XA3/Project01/Tag.log`.
+- Arguments:
+  - **`find_tag`**: The required feature name for calling the feature.
+- Execution:
+
+This feature is to be called as so:
+
+```bash
+CS1XA3/Project01/project_analyze.sh find_tag
+```
