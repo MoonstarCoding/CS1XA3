@@ -247,6 +247,22 @@ if [ $# -gt 0 ]; then
       count=$(find "$desired_path" -type f | wc -l)
       echo "No extension given: there are $count files in $desired_path."
     fi
+  elif [ $1 = "find_tag" ]; then
+    if [ $# -gt 1 ]; then
+      echo "Too many paramiters passed to feature." && exit 1
+    fi
+    read -p "What single word tag are you looking for? " tag
+    if [ -f "$parent_path/Project01/Tag.log" ]; then
+      rm "$parent_path/Project01/Tag.log" && touch "$parent_path/Project01/Tag.log"
+    else
+      touch "$parent_path/Project01/Tag.log"
+    fi
+    find -type f -name "*.py" -print0 | while IFS= read -d '' file; do
+      if egrep -q "^#.*$tag.*" "$file"; then
+          egrep "^#.*$tag.*" "$file" >> "$parent_path/Project01/Tag.log"
+      fi
+    done
+    echo "Feature find_tag completed."
   elif [ $1 = "calc" ]; then
     if [ $# -gt 3 ]; then
       echo "Too many arguments passed to Calculator Feature. Please refer to documentation for correct use."; exit 1
