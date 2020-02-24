@@ -33,8 +33,18 @@ body {
       "main"
       "footer"
       "bottom";
-    grid-template-rows: 13vh 5vh auto 5vh 5vh;
+    grid-template-rows: 20vh 5vh auto 5vh 5vh;
     grid-template-columns: 100%;
+  }
+
+  header {
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+    }
   }
 }
 

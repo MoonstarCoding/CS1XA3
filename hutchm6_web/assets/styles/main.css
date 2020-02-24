@@ -37,10 +37,16 @@ body {
 @media screen and (max-width: 800px) {
   body {
         grid-template-areas: "header" "nav" "main" "footer" "bottom";
-    -ms-grid-rows: 13vh 5vh auto 5vh 5vh;
-        grid-template-rows: 13vh 5vh auto 5vh 5vh;
+    -ms-grid-rows: 20vh 5vh auto 5vh 5vh;
+        grid-template-rows: 20vh 5vh auto 5vh 5vh;
     -ms-grid-columns: 100%;
         grid-template-columns: 100%;
+  }
+  header h1 {
+    font-size: 1.75rem;
+  }
+  header h2 {
+    font-size: 1.25rem;
   }
 }
 
@@ -217,23 +223,28 @@ div.calculator {
           flex-direction: column;
 }
 
-td {
+div.calculator table {
+  width: 100%;
+  height: 250px;
+}
+
+div.calculator table td {
   width: calc(100% / 6);
 }
 
-.textview {
-  height: 50px;
-  width: 300px;
-  font-size: 3rem;
-  color: lime;
-  background-color: darkslategray;
-}
-
-input[type='button'] {
+div.calculator table td input[type='button'] {
   height: 100%;
   width: 100%;
   color: white;
   background-color: darkslategray;
   border: none;
+}
+
+.textview {
+  height: 50px;
+  width: 100%;
+  font-size: 3rem;
+  color: lime;
+  background-color: darkslategray;
 }
 /*# sourceMappingURL=main.css.map */
