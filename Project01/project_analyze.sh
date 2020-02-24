@@ -170,7 +170,6 @@ PYOUT=$(
 python - <<EOF
 numerator = $numerator
 denominator = $denominator
-
 def GCD(num1, num2):
   if num2 == 0:
     return num1

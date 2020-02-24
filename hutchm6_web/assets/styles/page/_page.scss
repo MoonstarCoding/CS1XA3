@@ -22,7 +22,7 @@ body {
     ". footer footer footer ."
     "bottom bottom bottom bottom bottom";
   grid-template-columns: 0.1fr 1fr 1fr 1fr 0.1fr;
-  grid-template-rows: 0.5fr 0.15fr 1fr 1fr 1fr 0.3fr 0.1fr;
+  grid-template-rows: 15vh 5vh 1fr 1fr 1fr 5vh 5vh;
 }
 
 @media screen and (max-width: 800px) {
@@ -33,7 +33,7 @@ body {
       "main"
       "footer"
       "bottom";
-    grid-template-rows: 0.3fr 0.15fr 1fr 0.3fr 0.1fr;
+    grid-template-rows: 13vh 5vh auto 5vh 5vh;
     grid-template-columns: 100%;
   }
 }
@@ -55,6 +55,7 @@ main {
   grid-area: main;
   @include center();
   flex-direction: column;
+  margin: 1rem 0rem;
 }
 
 footer {

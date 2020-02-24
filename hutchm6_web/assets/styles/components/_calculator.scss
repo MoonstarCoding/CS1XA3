@@ -1,0 +1,26 @@
+div.calculator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+td {
+  width: calc(100% / 6);
+}
+
+.textview {
+  height: 50px;
+  width: 300px;
+  font-size: 3rem;
+  color: lime;
+  background-color: darkslategray;
+}
+
+input[type='button'] {
+  height: 100%;
+  width: 100%;
+  color: white;
+  background-color: darkslategray;
+  border: none;
+}
