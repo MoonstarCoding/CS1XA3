@@ -396,6 +396,36 @@ if [ $# -gt 0 ]; then
         printf "${RED}WARNING: ${NC}Invalid Calculation Code Passed.\nPlease refer to documentation for information on inputs for this feature.\n" ; exit 1
         ;;
     esac
+  elif [ $1 = "new_git" ]; then
+    if [ $# -gt 4 ]; then
+      echo "Too many arguments passed to feature." && exit 1
+    fi
+    if [ $# -lt 2 ]; then
+      echo "Not enough arguments passed to feature." && exit 1
+    fi
+    if [ -z $3 ]; then
+      branch="$2"
+    else
+      branch="$3"
+    fi
+    if [ -z $4 ]; then
+      msg="Added new git_project - $2"
+    else
+      msg="$4"
+    fi
+
+    cd "$parent_path"
+    git branch $branch
+    git checkout $branch
+    if [ -d "$2" ]; then
+      echo "Directory already exists." && exit 1
+    else
+      mkdir "$2"
+    fi
+    printf "# Project - $2\n\n## Usage\nExecute this script from project root with:\n\nWith possible arguments\n\n## Feature 01\nDescription: this feature does ...\nExecution: execute this feature by ...\nReference: some code was taken from [https://someurl.com]" > "./$2/README.md"
+    git add -A
+    git commit -m "$msg"
+    cd "./$2"
   else
     # input is not a valid option
     echo "This input is not a valid input for this script."
