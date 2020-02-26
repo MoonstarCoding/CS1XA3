@@ -425,6 +425,7 @@ if [ $# -gt 0 ]; then
     printf "# Project - $2\n\n## Usage\nExecute this script from project root with:\n\nWith possible arguments\n\n## Feature 01\nDescription: this feature does ...\nExecution: execute this feature by ...\nReference: some code was taken from [https://someurl.com]" > "./$2/README.md"
     git add -A
     git commit -m "$msg"
+    git push origin $branch
   else
     # input is not a valid option
     echo "This input is not a valid input for this script."

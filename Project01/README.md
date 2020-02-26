@@ -70,7 +70,7 @@ CS1XA3/Project01/project_analyze.sh count_type <directory>
 
 ## CUSTOM - GIT PROJECT SETUP
 
-- Description: Running this command will setup a brand new folder in your repository, (./CS1XA3/), branch, and automatically switch to the new created branch. This will also create a README.md file with sample text inside it, and make the first commit with a message.
+- Description: Running this command will setup a brand new folder in your repository, (./CS1XA3/), branch, and automatically switch to the new created branch. This will also create a README.md file with sample text inside it, make the first commit with a message, and push the branch to orign.
 - Arguments:
   - **`new_git`**: The required feature name for calling the feature.
   - **`folder_name`**: This argument specifies the name of the folder you will be creating in your repo.
