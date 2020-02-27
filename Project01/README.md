@@ -32,6 +32,7 @@ CS1XA3/Project01/project_analyze.sh checkout_merge
 ```
 
 - External Resources:
+  - Parsing File Permissions as Octal: <https://stackoverflow.com/questions/24112727/relative-paths-based-on-file-location-instead-of-current-working-directory>
   - Parsing first word from string line: <https://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash>
   - Checking if variable is set: <https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash>
 
@@ -148,3 +149,21 @@ This feature is to be called as so:
 ```bash
 CS1XA3/Project01/project_analyze.sh find_tag
 ```
+
+## SWITCH TO EXECUTABLE
+
+- Description: Upon being run, the user will be prompted to select change or restore:
+  - **Change**: Every shell script permissions will be read and every group that has write permissions will be given execute permissions. If they don't have write, the execute permission will revoked.
+  - **Restore**: Every file that was changed by this command will be restored to their original permissions.
+- Arguments:
+  - **`switch_exec`**: The required feature name for calling the feature.
+- Execution:
+
+This feature is to be called as so:
+
+```bash
+CS1XA3/Project01/project_analyze.sh switch_exec
+```
+
+- External Resources:
+  - Inspiration for the parent_path variable: <https://askubuntu.com/questions/152001/how-can-i-get-octal-file-permissions-from-command-line>

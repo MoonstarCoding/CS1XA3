@@ -426,6 +426,47 @@ if [ $# -gt 0 ]; then
     git add -A
     git commit -m "$msg"
     git push origin $branch
+  elif [ $1 = "switch_exec" ]; then
+    # While helping Lauren Zaini, we found this for parsing file permissions as octal numbers: https://askubuntu.com/questions/152001/how-can-i-get-octal-file-permissions-from-command-line
+
+    if [ $# -gt 1 ]; then
+      echo "Too many arguments passed to feature." && exit 1
+    fi
+
+    if ! [ -f "$parent_path/Project01/permissions.log" ]; then
+      touch "$parent_path/Project01/permissions.log"
+    fi
+    prompt=''
+    read -p "Would you like to Change (c) or Restore (r)? " prompt
+
+    if [ $prompt = "c" ]; then
+      if ! [ -f "$parent_path/Project01/permissions.log" ]; then
+        touch "$parent_path/Project01/permissions.log"
+      else
+        rm "$parent_path/Project01/permissions.log"
+        touch "$parent_path/Project01/permissions.log"
+      fi
+      find "$parent_path/" -type f -name "*.sh" -print0 | while IFS= read -d '' file; do
+        old=$(stat -c "%a %n" $file)
+        groups=(u g o)
+        echo "$old" >> "$parent_path/Project01/permissions.log"
+        for ((i=3 ; i < 10 ; i+=3)); do
+          count=$(echo "scale=0; $i / 3 - 1" | bc -l)
+          if [ $(ls -l "$file" | cut -d ' ' -f 1 | cut -c $i) = "w" ]; then
+            chmod "${groups[count]}+x" "$file"
+          else
+            chmod "${groups[count]}-x" "$file"
+          fi
+        done
+      done
+    elif [ $prompt = "r" ]; then
+      while IFS= read -r line; do
+        IFS=' ' read old file <<< "$line"
+        chmod "$old" "$file"
+      done < $parent_path/Project01/permissions.log
+    else
+      echo "Please type a valid input, either c or r." && exit 1
+    fi
   else
     # input is not a valid option
     echo "This input is not a valid input for this script."
