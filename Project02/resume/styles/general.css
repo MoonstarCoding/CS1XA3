@@ -215,6 +215,40 @@ button:hover {
 .portfolio > .content,
 .contacts > .content {
   display: none;
+  margin: 0 7vw;
+}
+
+.portfolio > .content .card,
+.contacts > .content .card {
+  margin: 0.25rem 0;
+}
+
+.portfolio > .content .card .card-header,
+.contacts > .content .card .card-header {
+  padding: 0.75rem 0.5rem 0.5rem 0.5rem;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+.portfolio > .content .card .card-body,
+.contacts > .content .card .card-body {
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.portfolio > .content .card .card-body a,
+.contacts > .content .card .card-body a {
+  color: #00a6d4;
+}
+
+.portfolio > .content .card .card-body a :hover,
+.contacts > .content .card .card-body a :hover {
+  color: #0080a6;
+}
+
+.portfolio > .content .card > .card-header {
+  background-color: #ffbe22;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -224,6 +258,7 @@ button:hover {
   .profile {
     grid-area: profile;
     margin: 2vh auto;
+    margin-bottom: 5vh;
     display: -ms-grid;
     display: grid;
         grid-template-areas: "image id" "left right";

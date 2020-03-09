@@ -10,6 +10,7 @@ $white: #f6f6f6;
 $light-grey: #383838;
 $box-size: 3rem;
 $title_buffer: 5vw;
+$card-radius: 1rem;
 
 ::-webkit-scrollbar {
   width: 12px;
@@ -196,6 +197,37 @@ button {
 .portfolio>.content,
 .contacts>.content {
   display: none;
+  margin: 0 7vw;
+
+  .card {
+    margin: 0.25rem 0;
+
+    .card-header {
+      padding: 0.75rem 0.5rem 0.5rem 0.5rem;
+      border-top-right-radius: $card-radius;
+      border-top-left-radius: $card-radius;
+    }
+
+    .card-body {
+      padding: 0.5rem 0.5rem 1rem 0.5rem;
+      border-bottom-right-radius: $card-radius;
+      border-bottom-left-radius: $card-radius;
+
+      a {
+        color: $light-blue;
+
+        :hover {
+          color: $dark-blue;
+        }
+      }
+    }
+  }
+}
+
+.portfolio>.content {
+  .card>.card-header {
+    background-color: $yellow;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -206,6 +238,7 @@ button {
   .profile {
     grid-area: profile;
     margin: 2vh auto;
+    margin-bottom: 5vh;
     display: grid;
     grid-template-areas:
       "image id"
