@@ -2,7 +2,7 @@
 
 ## Overview
 
-This webpage is hutchm6's online resume.
+This webpage is hutchm6's online resume. Being completely hand designed by Mark Hutchison with no external guides or references, this combination of HTML, SCSS, and JavaScript will come together to act as his personal online resume of sorts for employers to reference.
 
 ## Custom Javascript Code
 

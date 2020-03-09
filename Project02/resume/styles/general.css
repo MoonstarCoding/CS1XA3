@@ -69,6 +69,7 @@ button:hover {
       grid-template-areas: ". image id . left right .";
   -ms-grid-columns: 0.5fr 5fr 5fr 3fr 3fr 5fr 2.5fr;
       grid-template-columns: 0.5fr 5fr 5fr 3fr 3fr 5fr 2.5fr;
+  height: 20vh;
 }
 
 .profile img {
@@ -216,7 +217,7 @@ button:hover {
   display: none;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1000px) {
   body {
     width: 90vw;
   }
@@ -248,6 +249,9 @@ button:hover {
             align-items: center;
     padding: 0 1vw;
     font-size: x-large;
+  }
+  .resume > .content .main .card {
+    margin: 0px 7vw 3px -7.4vw;
   }
 }
 /*# sourceMappingURL=general.css.map */
