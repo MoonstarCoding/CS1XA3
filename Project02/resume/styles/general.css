@@ -216,11 +216,26 @@ button:hover {
 .contacts > .content {
   display: none;
   margin: 0 7vw;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .portfolio > .content .card,
 .contacts > .content .card {
   margin: 0.25rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  float: left;
+  width: calc(100vw/2.85);
 }
 
 .portfolio > .content .card .card-header,
@@ -230,11 +245,31 @@ button:hover {
   border-top-left-radius: 1rem;
 }
 
+.portfolio > .content .card .card-img,
+.contacts > .content .card .card-img {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.portfolio > .content .card .card-img img,
+.contacts > .content .card .card-img img {
+  height: 15vw;
+  width: 15vw;
+}
+
 .portfolio > .content .card .card-body,
 .contacts > .content .card .card-body {
   padding: 0.5rem 0.5rem 1rem 0.5rem;
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
+  text-align: center;
 }
 
 .portfolio > .content .card .card-body a,

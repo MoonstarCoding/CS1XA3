@@ -21,6 +21,11 @@ button:hover {
   background-color: #575757;
 }
 
+.card-body,
+.card-img {
+  background-color: #383838;
+}
+
 .resume > .content .aside {
   background-color: #44a428;
 }

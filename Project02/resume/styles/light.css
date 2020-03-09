@@ -21,6 +21,15 @@ button:hover {
   background-color: #b6f5ff;
 }
 
+.card-header {
+  color: #f6f6f6;
+}
+
+.card-body,
+.card-img {
+  background-color: #f1f1f1;
+}
+
 .resume > .content .aside {
   background-color: #44a428;
   color: #f6f6f6;

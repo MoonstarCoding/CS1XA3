@@ -32,6 +32,10 @@ button {
   }
 }
 
+.card-body,
+.card-img {
+  background-color: $light-grey;
+}
 
 .resume>.content {
   .aside {

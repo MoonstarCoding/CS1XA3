@@ -198,9 +198,15 @@ button {
 .contacts>.content {
   display: none;
   margin: 0 7vw;
+  flex-direction: row;
+  flex-wrap: wrap;
 
   .card {
     margin: 0.25rem 0;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: calc(100vw/2.85);
 
     .card-header {
       padding: 0.75rem 0.5rem 0.5rem 0.5rem;
@@ -208,10 +214,23 @@ button {
       border-top-left-radius: $card-radius;
     }
 
+    .card-img {
+      width: 100%;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+
+      img {
+        height: 15vw;
+        width: 15vw;
+      }
+    }
+
     .card-body {
       padding: 0.5rem 0.5rem 1rem 0.5rem;
       border-bottom-right-radius: $card-radius;
       border-bottom-left-radius: $card-radius;
+      text-align: center;
 
       a {
         color: $light-blue;

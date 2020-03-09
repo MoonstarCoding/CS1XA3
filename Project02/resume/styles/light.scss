@@ -31,6 +31,15 @@ button {
   }
 }
 
+.card-header {
+  color: $white;
+}
+
+.card-body,
+.card-img {
+  background-color: darken($white, 2%);
+}
+
 .resume>.content {
   .aside {
     background-color: $green;
