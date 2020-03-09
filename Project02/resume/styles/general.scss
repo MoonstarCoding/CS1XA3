@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+$bg: #242424;
+$red: #ff2801;
+$yellow: #ffbe22;
+$green: #44a428;
+$light-blue: #00a6d4;
+$dark-blue: #0080a6;
+$white: #f6f6f6;
+$light-grey: #383838;
+$box-size: 3rem;
+$title_buffer: 5vw;
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  transition: background-color 0.3s;
+  width: 60vw;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+button {
+  width: $box-size;
+  height: $box-size;
+  font-size: xx-large;
+  transition: all 0.3s;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.toggleSlide {
+  position: absolute;
+  top: 0;
+  right: $title_buffer;
+}
+
+#changeTheme {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.title {
+  height: $box-size;
+  margin: 0 $title_buffer;
+  background-color: $green;
+
+  div {
+    height: $box-size;
+    width: 20%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.profile {
+  position: relative;
+  margin: 2vh auto;
+  display: grid;
+  grid-template-areas: ". image id . left right .";
+  grid-template-columns: 0.5fr 5fr 5fr 3fr 3fr 5fr 2.5fr;
+
+  img {
+    grid-area: image;
+    width: auto;
+    height: 100%;
+    position: absolute;
+    right: 1rem;
+  }
+
+  div:not(.image) {
+    grid-area: id;
+    margin: auto 0;
+
+    h3 {
+      color: $light-blue;
+    }
+  }
+
+  ul {
+    margin: auto 0;
+    list-style: none;
+
+    &.left {
+      grid-area: left;
+      text-align: right;
+      padding-right: 0.5rem;
+    }
+
+    &.right {
+      grid-area: right;
+      text-align: left;
+    }
+  }
+}
+
+.resume,
+.portfolio,
+.contacts {
+  position: relative;
+
+  .content {
+    height: 100%;
+  }
+}
+
+.resume>.content {
+  display: grid;
+  grid-template-areas: "aside main";
+  grid-template-columns: 2fr 3fr;
+  margin-top: -5px;
+
+  .aside {
+    grid-area: aside;
+    display: grid;
+    grid-template-areas:
+      "education"
+      "qualification";
+    grid-template-columns: repeat(2, 1fr);
+    background-color: $green;
+    width: 60%;
+    padding: 0.5rem 0 0 2vw;
+    margin: 0 0 0 7vw;
+
+    .education {
+      grid-area: education;
+    }
+
+    .qualifications {
+      margin: 2rem 0;
+      grid-area: qualification;
+
+      ol,
+      ul {
+        margin-left: 2.5rem;
+      }
+    }
+  }
+
+  .main {
+    grid-area: main;
+    display: grid;
+    width: 100%;
+    padding-top: 0.5rem;
+
+    hr {
+      margin: 3px 0;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0.5rem 2rem;
+      margin: 0px 7vw 3px -2.6vw;
+
+      .job {
+        ul {
+          margin-left: 2.5rem;
+        }
+      }
+
+      ul {
+        margin-left: 2.5rem;
+      }
+    }
+  }
+}
+
+.portfolio {
+  .title {
+    background-color: $yellow;
+  }
+}
+
+.contacts {
+  .title {
+    background-color: $red;
+  }
+}
+
+.portfolio>.content,
+.contacts>.content {
+  display: none;
+}
+
+@media only screen and (max-width: 960px) {
+  body {
+    width: 90vw;
+  }
+
+  .profile {
+    grid-area: profile;
+    margin: 2vh auto;
+    display: grid;
+    grid-template-areas:
+      "image id"
+      "left right";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    img {
+      right: 0.5rem;
+    }
+  }
+
+  .title {
+    height: $box-size;
+
+    div {
+      height: $box-size;
+      width: 25%;
+      display: flex;
+      align-items: center;
+      padding: 0 1vw;
+      font-size: x-large;
+    }
+  }
+}

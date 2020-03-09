@@ -1,0 +1,34 @@
+::-webkit-scrollbar-track {
+  background: #acacac;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #797979;
+}
+
+body {
+  background-color: #e9fcff;
+  color: #383838;
+}
+
+button {
+  background-color: #e9fcff;
+  border: 2px solid #383838;
+  color: #383838;
+}
+
+button:hover {
+  background-color: #b6f5ff;
+}
+
+.resume > .content .aside {
+  background-color: #44a428;
+  color: #f6f6f6;
+}
+
+.resume > .content .main .card:nth-of-type(2),
+.resume > .content .main .card:nth-of-type(4) {
+  color: #383838;
+  background-color: #d0d0d0;
+}
+/*# sourceMappingURL=light.css.map */

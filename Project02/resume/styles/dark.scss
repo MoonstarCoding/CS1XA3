@@ -1,0 +1,48 @@
+$bg: #242424;
+$red: #ff2801;
+$yellow: #ffbe22;
+$green: #44a428;
+$light_blue: #00a6d4;
+$dark-blue: #0080a6;
+$white: #f6f6f6;
+$light-grey: #383838;
+$box-size: 3rem;
+$title_buffer: 5vw;
+
+::-webkit-scrollbar-track {
+  background: lighten($light-grey, 10%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: $light-grey;
+}
+
+body {
+  background-color: $bg;
+  color: $white;
+}
+
+button {
+  background-color: $bg;
+  border: 2px solid $light-grey;
+  color: $white;
+
+  &:hover {
+    background-color: lighten($bg, 20%);
+  }
+}
+
+
+.resume>.content {
+  .aside {
+    background-color: $green;
+  }
+
+  .main {
+
+    .card:nth-of-type(2),
+    .card:nth-of-type(4) {
+      background-color: $light-grey;
+    }
+  }
+}

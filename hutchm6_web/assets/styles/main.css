@@ -27,7 +27,7 @@ body {
   font-family: "Montserrat", sans-serif;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "header header header header header" "nav nav nav nav nav" ". main main main ." ". main main main ." ". main main main ." ". footer footer footer ." "bottom bottom bottom bottom bottom";
+      grid-template-areas: "header header header header header" "nav nav nav nav nav" ". main main main ." ". main main main ." ". main main main ." ". footer footer footer ." "bottom bottom bottom bottom bottom";
   -ms-grid-columns: 0.1fr 1fr 1fr 1fr 0.1fr;
       grid-template-columns: 0.1fr 1fr 1fr 1fr 0.1fr;
   -ms-grid-rows: 15vh 5vh 1fr 1fr 1fr 5vh 5vh;
@@ -36,7 +36,7 @@ body {
 
 @media screen and (max-width: 800px) {
   body {
-        grid-template-areas: "header" "nav" "main" "footer" "bottom";
+        grid-template-areas: "header" "nav" "main" "footer" "bottom";
     -ms-grid-rows: 20vh 5vh auto 5vh 5vh;
         grid-template-rows: 20vh 5vh auto 5vh 5vh;
     -ms-grid-columns: 100%;

@@ -1,0 +1,32 @@
+::-webkit-scrollbar-track {
+  background: #525252;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #383838;
+}
+
+body {
+  background-color: #242424;
+  color: #f6f6f6;
+}
+
+button {
+  background-color: #242424;
+  border: 2px solid #383838;
+  color: #f6f6f6;
+}
+
+button:hover {
+  background-color: #575757;
+}
+
+.resume > .content .aside {
+  background-color: #44a428;
+}
+
+.resume > .content .main .card:nth-of-type(2),
+.resume > .content .main .card:nth-of-type(4) {
+  background-color: #383838;
+}
+/*# sourceMappingURL=dark.css.map */

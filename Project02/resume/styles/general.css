@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  width: 60vw;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+button {
+  width: 3rem;
+  height: 3rem;
+  font-size: xx-large;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.toggleSlide {
+  position: absolute;
+  top: 0;
+  right: 5vw;
+}
+
+#changeTheme {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.title {
+  height: 3rem;
+  margin: 0 5vw;
+  background-color: #44a428;
+}
+
+.title div {
+  height: 3rem;
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile {
+  position: relative;
+  margin: 2vh auto;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: ". image id . left right .";
+  -ms-grid-columns: 0.5fr 5fr 5fr 3fr 3fr 5fr 2.5fr;
+      grid-template-columns: 0.5fr 5fr 5fr 3fr 3fr 5fr 2.5fr;
+}
+
+.profile img {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: image;
+  width: auto;
+  height: 100%;
+  position: absolute;
+  right: 1rem;
+}
+
+.profile div:not(.image) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: id;
+  margin: auto 0;
+}
+
+.profile div:not(.image) h3 {
+  color: #00a6d4;
+}
+
+.profile ul {
+  margin: auto 0;
+  list-style: none;
+}
+
+.profile ul.left {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: left;
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.profile ul.right {
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  grid-area: right;
+  text-align: left;
+}
+
+.resume,
+.portfolio,
+.contacts {
+  position: relative;
+}
+
+.resume .content,
+.portfolio .content,
+.contacts .content {
+  height: 100%;
+}
+
+.resume > .content {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "aside main";
+  -ms-grid-columns: 2fr 3fr;
+      grid-template-columns: 2fr 3fr;
+  margin-top: -5px;
+}
+
+.resume > .content .aside {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: aside;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "education" "qualification";
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  background-color: #44a428;
+  width: 60%;
+  padding: 0.5rem 0 0 2vw;
+  margin: 0 0 0 7vw;
+}
+
+.resume > .content .aside .education {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: education;
+}
+
+.resume > .content .aside .qualifications {
+  margin: 2rem 0;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: qualification;
+}
+
+.resume > .content .aside .qualifications ol,
+.resume > .content .aside .qualifications ul {
+  margin-left: 2.5rem;
+}
+
+.resume > .content .main {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: main;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  padding-top: 0.5rem;
+}
+
+.resume > .content .main hr {
+  margin: 3px 0;
+}
+
+.resume > .content .main .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.5rem 2rem;
+  margin: 0px 7vw 3px -2.6vw;
+}
+
+.resume > .content .main .card .job ul {
+  margin-left: 2.5rem;
+}
+
+.resume > .content .main .card ul {
+  margin-left: 2.5rem;
+}
+
+.portfolio .title {
+  background-color: #ffbe22;
+}
+
+.contacts .title {
+  background-color: #ff2801;
+}
+
+.portfolio > .content,
+.contacts > .content {
+  display: none;
+}
+
+@media only screen and (max-width: 960px) {
+  body {
+    width: 90vw;
+  }
+  .profile {
+    grid-area: profile;
+    margin: 2vh auto;
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "image id" "left right";
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+  }
+  .profile img {
+    right: 0.5rem;
+  }
+  .title {
+    height: 3rem;
+  }
+  .title div {
+    height: 3rem;
+    width: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0 1vw;
+    font-size: x-large;
+  }
+}
+/*# sourceMappingURL=general.css.map */
