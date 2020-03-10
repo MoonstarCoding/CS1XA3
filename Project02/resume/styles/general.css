@@ -235,7 +235,7 @@ button:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   float: left;
-  width: calc(100vw/2.85);
+  width: calc(100vw / 4.5);
 }
 
 .portfolio > .content .card .card-header,
@@ -286,6 +286,10 @@ button:hover {
   background-color: #ffbe22;
 }
 
+.contacts > .content .card > .card-header {
+  background-color: #ff2801;
+}
+
 @media only screen and (max-width: 1000px) {
   body {
     width: 90vw;
@@ -322,6 +326,10 @@ button:hover {
   }
   .resume > .content .main .card {
     margin: 0px 7vw 3px -7.4vw;
+  }
+  .portfolio > .content .card,
+  .contacts > .content .card {
+    width: calc(100vw / 2.85);
   }
 }
 /*# sourceMappingURL=general.css.map */
