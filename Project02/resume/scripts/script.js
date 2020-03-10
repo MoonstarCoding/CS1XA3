@@ -13,6 +13,10 @@ $(document).ready(function () {
     $(this).on("click", () => {
       par = $(this).parent().parent();
       par.find(".content").slideToggle();
+
+      if ($(".toggleSlide").is(":visible")) {
+        $("#bottom").fadeToggle(1000);
+      }
     });
   });
 

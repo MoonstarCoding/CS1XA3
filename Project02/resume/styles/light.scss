@@ -2,6 +2,8 @@ $bg: #e9fcff;
 $red: #ff2801;
 $yellow: #ffbe22;
 $green: #44a428;
+$light-blue: #00a6d4;
+$dark-blue: #0080a6;
 $dark: #929292;
 $light-grey: #383838;
 $white: #f6f6f6;
@@ -27,6 +29,20 @@ button {
   color: $light-grey;
 
   &:hover {
+    background-color: darken($bg, 10%);
+  }
+}
+
+a#bottom {
+  color: $dark-blue;
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  text-decoration: none;
+  border: 3px solid $dark-blue;
+  transition: all 0.3s;
+
+  :hover {
     background-color: darken($bg, 10%);
   }
 }

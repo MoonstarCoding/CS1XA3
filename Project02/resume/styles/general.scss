@@ -26,9 +26,13 @@ $card-radius: 1rem;
 body {
   transition: background-color 0.3s;
   width: 60vw;
+  height: 105%;
   margin: 0 auto;
   min-height: 100vh;
   font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 button {
@@ -64,6 +68,20 @@ button {
     width: 20%;
     display: flex;
     align-items: center;
+  }
+}
+
+a#bottom {
+  color: $light-blue;
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  text-decoration: none;
+  border: 3px solid $light-blue;
+
+  :hover {
+    color: $dark-blue;
+    border: 3px solid $dark-blue;
   }
 }
 
@@ -119,7 +137,7 @@ button {
   }
 }
 
-.resume > .content {
+.resume>.content {
   display: grid;
   grid-template-areas: "aside main";
   grid-template-columns: 2fr 3fr;
@@ -194,8 +212,8 @@ button {
   }
 }
 
-.portfolio > .content,
-.contacts > .content {
+.portfolio>.content,
+.contacts>.content {
   display: none;
   margin: 0 7vw;
   flex-direction: row;
@@ -243,14 +261,14 @@ button {
   }
 }
 
-.portfolio > .content {
-  .card > .card-header {
+.portfolio>.content {
+  .card>.card-header {
     background-color: $yellow;
   }
 }
 
-.contacts > .content {
-  .card > .card-header {
+.contacts>.content {
+  .card>.card-header {
     background-color: $red;
   }
 }
@@ -289,7 +307,13 @@ button {
     }
   }
 
-  .resume > .content {
+  #changeTheme {
+    position: absolute;
+    bottom: -10%;
+    right: -30%;
+  }
+
+  .resume>.content {
     .main {
       .card {
         margin: 0px 7vw 3px -7.4vw;
@@ -297,8 +321,8 @@ button {
     }
   }
 
-  .portfolio > .content,
-  .contacts > .content {
+  .portfolio>.content,
+  .contacts>.content {
     .card {
       width: calc(100vw / 2.85);
     }

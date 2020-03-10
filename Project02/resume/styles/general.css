@@ -15,9 +15,20 @@ body {
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
   width: 60vw;
+  height: 105%;
   margin: 0 auto;
   min-height: 100vh;
   font-family: "Montserrat", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 button {
@@ -59,6 +70,20 @@ button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+a#bottom {
+  color: #00a6d4;
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  text-decoration: none;
+  border: 3px solid #00a6d4;
+}
+
+a#bottom :hover {
+  color: #0080a6;
+  border: 3px solid #0080a6;
 }
 
 .profile {
@@ -323,6 +348,11 @@ button:hover {
             align-items: center;
     padding: 0 1vw;
     font-size: x-large;
+  }
+  #changeTheme {
+    position: absolute;
+    bottom: -10%;
+    right: -30%;
   }
   .resume > .content .main .card {
     margin: 0px 7vw 3px -7.4vw;

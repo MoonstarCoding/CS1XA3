@@ -21,6 +21,21 @@ button:hover {
   background-color: #b6f5ff;
 }
 
+a#bottom {
+  color: #0080a6;
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  text-decoration: none;
+  border: 3px solid #0080a6;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+a#bottom :hover {
+  background-color: #b6f5ff;
+}
+
 .card-header {
   color: #f6f6f6;
 }
