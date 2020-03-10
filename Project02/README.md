@@ -65,3 +65,8 @@ For this Project, I used the `jQuery` library and `js-cookie` library to accompl
 - **jQuery**: <https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js>
 - **js-cookie**: <https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js>
   - js-cookie GitHub: <https://github.com/js-cookie/js-cookie>
+
+I also used the Font Awesome 5 css library to gain access to the symbols used for the buttons and dropdown symbols.
+
+- **Font Awesome**: <https://use.fontawesome.com/releases/v5.1.1/css/all.css>
+  - Website Link: <https://fontawesome.com/>
