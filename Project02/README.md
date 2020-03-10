@@ -10,7 +10,7 @@ This webpage is hutchm6's online resume. Being completely hand designed by Mark 
 
 Description:
 
-This feature was designed to allow each component of the webpage to fold into dropdown menus, hidden from sight until brought back via the toggle button. Additionally, the link I have at the bottom of the page to send you to the top of the page will disappear if **and only if** all 3 dropdowns have been collapsed.
+This feature was designed to allow each component of the webpage to fold into dropdown menus, hidden from sight until brought back via the toggle button. Additionally, the link I have at the bottom of the page to send you to the top of the page will `fadeToggle` if **and only if** all 3 dropdowns have been collapsed.
 
 Code:
 
