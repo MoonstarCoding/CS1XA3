@@ -1,28 +1,89 @@
-# COMP SCI 1XA3 - Mark Hutchison
+# CS1XA3 Project02 - hutchm6
 
-## About Me
+## Overview
 
-I am primarily a Web Designer who has experience with designing in the following languages:
+This webpage is hutchm6's online resume. Being completely hand designed by Mark Hutchison with no external guides or references, this combination of HTML, SCSS, and JavaScript will come together to act as his personal online resume for employers to reference.
 
-- HTML
-- SCSS, CSS
-- JavaScript, jQuery
-- PHP
-- Python
-- mySQL, SQLite
+## Custom Javascript Code
 
-I was a part of the Skills Canada Web Design and Development competition and placed Bronze, so it is safe to say that you can trust me when I say I know what I am talking about.
+### Feature: toggleSlide
 
-### Useful Links
+Description:
 
-- Course Page Link: <https://mac1xa3.ca/>
+This feature was designed to allow each component of the webpage to fold into dropdown menus, hidden from sight until brought back via the toggle button.
 
-- GitHub Student Development Pack: <https://education.github.com/pack/offers>
+Code:
 
-### Other Resources
+```javascript
+$(".toggleSlide").each(function (i, obj) {
+  $(this).on("click", () => {
+    par = $(this).parent().parent();
+    par.find(".content").slideToggle();
+    hideBottom();
+  });
+});
+```
 
-- [Python DJango Manual PDF](https://drive.google.com/file/d/1YTO_9vNn_n8-8zvOP4jG7FBG6k8ChmNN/view?usp=sharing)
+### Feature: hideBottom
 
-- [Proof of Competition](https://www.hdsb.ca/our-board/Pages/News/News-Description.aspx?NewsID=657)
+Description:
 
-- [Python YouTube Tutorial](https://www.youtube.com/watch?v=rfscVS0vtbw)
+The link I have at the bottom of the page to send you to the top of the page will `fadeToggle` if **and only if** all 3 dropdowns have been collapsed.
+
+Code:
+
+```javascript
+function hideBottom() {
+  setTimeout(() => {
+    if ($(".resume .content").css("display") == "none" && $(".portfolio .content").css("display") == "none" && $(".contacts .content").css("display") == "none") {
+      $("#bottom").fadeOut(1000);
+    } else {
+      $("#bottom").fadeIn(1000);
+    }
+  }, 800);
+}
+```
+
+### Feature: changeTheme
+
+Description:
+
+Using jQuery and js-cookie, I will have a light and dark style sheet that toggles and logs your choice as a cookie in your browser.
+
+Code:
+
+```javascript
+$("#changeTheme").on("click", () => {
+  $("#changeTheme").blur();
+  if (Cookies.get("mode") == "dark") {
+    $("#stylesheet").attr("href", "./resume/styles/dark.css");
+    $("#changeTheme")
+      .empty()
+      .append(`<i class="fas fa-sun"></i>`);
+    Cookies.set("mode", "light", {
+      expires: 365
+    });
+  } else {
+    $("#stylesheet").attr("href", "./resume/styles/light.css");
+    $("#changeTheme")
+      .empty()
+      .append(`<i class="fas fa-moon"></i>`);
+    Cookies.set("mode", "dark", {
+      expires: 365
+    });
+  }
+});
+```
+
+## Links and Libraries
+
+For this Project, I used the `jQuery` library and `js-cookie` library to accomplish my JavaScript effects.
+
+- **jQuery**: <https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js>
+- **js-cookie**: <https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js>
+  - js-cookie GitHub: <https://github.com/js-cookie/js-cookie>
+
+I also used the Font Awesome 5 css library to gain access to the symbols used for the buttons and dropdown symbols.
+
+- **Font Awesome**: <https://use.fontawesome.com/releases/v5.1.1/css/all.css>
+  - Website Link: <https://fontawesome.com/>
