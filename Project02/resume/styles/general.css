@@ -362,4 +362,21 @@ a#bottom :hover {
     width: calc(100vw / 2.85);
   }
 }
+
+@media only screen and (max-width: 480px) {
+  #changeTheme {
+    display: none;
+  }
+  .profile {
+    margin: 2vh 0 15vh 0;
+  }
+  .resume > .content .aside {
+    width: 75% !important;
+    margin: 0 !important;
+  }
+  .portfolio > .content .card,
+  .contacts > .content .card {
+    width: 100% !important;
+  }
+}
 /*# sourceMappingURL=general.css.map */
