@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -8,7 +9,7 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -24,11 +25,11 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 button {
@@ -68,8 +69,8 @@ button:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 a#bottom {
@@ -91,9 +92,9 @@ a#bottom :hover {
   margin: 2vh auto;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: ". image id . left right .";
+  grid-template-areas: ". image id . left right .";
   -ms-grid-columns: 0.5fr 5fr 5fr 3fr 3fr 5fr 2.5fr;
-      grid-template-columns: 0.5fr 5fr 5fr 3fr 3fr 5fr 2.5fr;
+  grid-template-columns: 0.5fr 5fr 5fr 3fr 3fr 5fr 2.5fr;
   height: 20vh;
 }
 
@@ -150,49 +151,50 @@ a#bottom :hover {
   height: 100%;
 }
 
-.resume > .content {
+.resume>.content {
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "aside main";
+  grid-template-areas: "aside main";
   -ms-grid-columns: 2fr 3fr;
-      grid-template-columns: 2fr 3fr;
+  grid-template-columns: 2fr 3fr;
   margin-top: -5px;
 }
 
-.resume > .content .aside {
+.resume>.content .aside {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: aside;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "education" "qualification";
+  grid-template-areas: "education"
+    "qualification";
   -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   background-color: #44a428;
   width: 60%;
   padding: 0.5rem 0 0 2vw;
   margin: 0 0 0 7vw;
 }
 
-.resume > .content .aside .education {
+.resume>.content .aside .education {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: education;
 }
 
-.resume > .content .aside .qualifications {
+.resume>.content .aside .qualifications {
   margin: 2rem 0;
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: qualification;
 }
 
-.resume > .content .aside .qualifications ol,
-.resume > .content .aside .qualifications ul {
+.resume>.content .aside .qualifications ol,
+.resume>.content .aside .qualifications ul {
   margin-left: 2.5rem;
 }
 
-.resume > .content .main {
+.resume>.content .main {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: main;
@@ -202,30 +204,30 @@ a#bottom :hover {
   padding-top: 0.5rem;
 }
 
-.resume > .content .main hr {
+.resume>.content .main hr {
   margin: 3px 0;
 }
 
-.resume > .content .main .card {
+.resume>.content .main .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 0.5rem 2rem;
   margin: 0px 7vw 3px -2.6vw;
 }
 
-.resume > .content .main .card .job ul {
+.resume>.content .main .card .job ul {
   margin-left: 2.5rem;
 }
 
-.resume > .content .main .card ul {
+.resume>.content .main .card ul {
   margin-left: 2.5rem;
 }
 
@@ -237,81 +239,81 @@ a#bottom :hover {
   background-color: #ff2801;
 }
 
-.portfolio > .content,
-.contacts > .content {
+.portfolio>.content,
+.contacts>.content {
   display: none;
   margin: 0 7vw;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.portfolio > .content .card,
-.contacts > .content .card {
+.portfolio>.content .card,
+.contacts>.content .card {
   margin: 0.25rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   float: left;
   width: calc(100vw / 4.5);
 }
 
-.portfolio > .content .card .card-header,
-.contacts > .content .card .card-header {
+.portfolio>.content .card .card-header,
+.contacts>.content .card .card-header {
   padding: 0.75rem 0.5rem 0.5rem 0.5rem;
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
 }
 
-.portfolio > .content .card .card-img,
-.contacts > .content .card .card-img {
+.portfolio>.content .card .card-img,
+.contacts>.content .card .card-img {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-.portfolio > .content .card .card-img img,
-.contacts > .content .card .card-img img {
+.portfolio>.content .card .card-img img,
+.contacts>.content .card .card-img img {
   height: 15vw;
   width: 15vw;
 }
 
-.portfolio > .content .card .card-body,
-.contacts > .content .card .card-body {
+.portfolio>.content .card .card-body,
+.contacts>.content .card .card-body {
   padding: 0.5rem 0.5rem 1rem 0.5rem;
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
   text-align: center;
 }
 
-.portfolio > .content .card .card-body a,
-.contacts > .content .card .card-body a {
+.portfolio>.content .card .card-body a,
+.contacts>.content .card .card-body a {
   color: #00a6d4;
 }
 
-.portfolio > .content .card .card-body a :hover,
-.contacts > .content .card .card-body a :hover {
+.portfolio>.content .card .card-body a :hover,
+.contacts>.content .card .card-body a :hover {
   color: #0080a6;
 }
 
-.portfolio > .content .card > .card-header {
+.portfolio>.content .card>.card-header {
   background-color: #ffbe22;
 }
 
-.contacts > .content .card > .card-header {
+.contacts>.content .card>.card-header {
   background-color: #ff2801;
 }
 
@@ -319,24 +321,29 @@ a#bottom :hover {
   body {
     width: 90vw;
   }
+
   .profile {
     grid-area: profile;
     margin: 2vh auto;
     margin-bottom: 5vh;
     display: -ms-grid;
     display: grid;
-        grid-template-areas: "image id" "left right";
+    grid-template-areas: "image id"
+      "left right";
     -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     -ms-grid-rows: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
+
   .profile img {
     right: 0.5rem;
   }
+
   .title {
     height: 3rem;
   }
+
   .title div {
     height: 3rem;
     width: 25%;
@@ -344,22 +351,46 @@ a#bottom :hover {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     padding: 0 1vw;
     font-size: x-large;
   }
+
   #changeTheme {
     position: absolute;
     bottom: -10%;
     right: -30%;
   }
-  .resume > .content .main .card {
+
+  .resume>.content .main .card {
     margin: 0px 7vw 3px -7.4vw;
   }
-  .portfolio > .content .card,
-  .contacts > .content .card {
+
+  .portfolio>.content .card,
+  .contacts>.content .card {
     width: calc(100vw / 2.85);
   }
 }
+
+@media only screen and (max-width: 480px) {
+  #changeTheme {
+    display: none;
+  }
+
+  .profile {
+    margin: 2vh 0 15vh 0;
+  }
+
+  .resume>.content .aside {
+    width: 75% !important;
+    margin: 0 !important;
+  }
+
+  .portfolio>.content .card,
+  .contacts>.content .card {
+    width: 100% !important;
+  }
+}
+
 /*# sourceMappingURL=general.css.map */
