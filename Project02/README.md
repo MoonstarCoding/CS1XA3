@@ -4,6 +4,14 @@
 
 This webpage is hutchm6's online resume. Being completely hand designed by Mark Hutchison with no external guides or references, this combination of HTML, SCSS, and JavaScript will come together to act as his personal online resume for employers to reference.
 
+## HTML
+
+The HTML is designed with a basic block structure. Every component is a block given `display: grid;` to organize the items inside the block. Everything is clearly labeled by its class and organized exactly the way you see it on the page.
+
+## SCSS
+
+With hard work, a lot of time, and a good chunk of patience, I manually styled the website to work on Desktop and Tablet, with mild to minimal support on mobile. The SCSS is structured from top to bottom to attempt to mirror the HTML closely. The colours were chosen based off of the Atom One Dark colour scheme for VS Code, and the assets were created by me in Photoshop.
+
 ## Custom Javascript Code
 
 ### Feature: toggleSlide
