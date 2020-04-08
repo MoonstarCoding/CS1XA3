@@ -16,32 +16,49 @@ With hard work, a lot of time, and a good chunk of patience, I manually styled t
 
 ### Feature: toggleSlide
 
-Description:
+**Description:**
 
-This feature was designed to allow each component of the webpage to fold into dropdown menus, hidden from sight until brought back via the toggle button. Additionally, the link I have at the bottom of the page to send you to the top of the page will `fadeToggle` if **and only if** all 3 dropdowns have been collapsed.
+This feature was designed to allow each component of the webpage to fold into dropdown menus, hidden from sight until brought back via the toggle button.
 
-Code:
+**Code:**
 
 ```javascript
 $(".toggleSlide").each(function (i, obj) {
     $(this).on("click", () => {
       par = $(this).parent().parent();
       par.find(".content").slideToggle();
-
-      if ($(".toggleSlide").is(":visible")) {
-        $("#bottom").fadeToggle(1000);
-      }
+      hideBottom();
     });
   });
 ```
 
+### Feature: hideBottom:
+
+**Description:**
+
+This feature was designed to hide the link I have at the bottom of the page, the one to send you to the top of the page, using `fadeToggle` if **and only if** all 3 dropdowns have been collapsed.
+
+**Code:**
+
+```javascript
+function hideBottom() {
+    setTimeout(() => {
+      if ($(".resume .content").css("display") == "none" && $(".portfolio .content").css("display") == "none" && $(".contacts .content").css("display") == "none") {
+        $("#bottom").fadeOut(1000);
+      } else {
+        $("#bottom").fadeIn(1000);
+      }
+    }, 800);
+}
+```
+
 ### Feature: changeTheme
 
-Description:
+**Description:**
 
 Using jQuery and js-cookie, I will have a light and dark style sheet that toggles and logs your choice as a cookie in your browser.
 
-Code:
+**Code:**
 
 ```javascript
 $("#changeTheme").on("click", () => {
