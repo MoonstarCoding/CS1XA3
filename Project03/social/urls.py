@@ -18,13 +18,14 @@ from . import views
 
 app_name = 'social'
 urlpatterns = [
-    path('messages/', views.messages_view,name='messages_view'),
-    path('account/', views.account_view,name='account_view'),
-    path('people/', views.people_view,name='people_view'),
-    path('like/', views.like_view,name='like_view'),
-    path('postsubmit/', views.post_submit_view,name='post_submit_view'),
-    path('morepost/', views.more_post_view,name='more_post_view'),
-    path('moreppl/', views.more_ppl_view,name='more_ppl_view'),
-    path('friendrequest/', views.friend_request_view,name='friend_request_view'),
-    path('acceptdecline/', views.accept_decline_view,name='accept_decline_view'),
+    path('messages/', views.messages_view, name='messages_view'),
+    path('account/', views.account_view, name='account_view'),
+    path('update_info/', views.info_update_view, name='info_update_view'),
+    path('people/', views.people_view, name='people_view'),
+    path('like/', views.like_view, name='like_view'),
+    path('postsubmit/', views.post_submit_view, name='post_submit_view'),
+    path('morepost/', views.more_post_view, name='more_post_view'),
+    path('moreppl/', views.more_ppl_view, name='more_ppl_view'),
+    path('friendrequest/', views.friend_request_view, name='friend_request_view'),
+    path('acceptdecline/', views.accept_decline_view, name='accept_decline_view'),
 ]

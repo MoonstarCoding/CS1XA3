@@ -5,7 +5,7 @@
 {% block middle_column %}
     <!-- TODO Objective 1: implement signup form -->
 
-    <form method="post" id="create_form" action="{% url 'login:create_view' %}">
+    <form method="post" id="create_form" action="{% url 'login:signup_view' %}">
         {% csrf_token %}
         {% for field in signup_form %}
         <p>

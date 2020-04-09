@@ -8,7 +8,19 @@
             <div class="w3-card w3-round w3-white">
                 <div class="w3-container w3-padding">
                     <h6 class="w3-opacity">Change Password</h6>
-                    <!--                     TODO Objective 3: Add Password Change Form -->
+                    <!-- TODO Objective 3: Add Password Change Form -->
+                    <form action="{% url 'login:change_view' %}" method="post">
+                        {% csrf_token %}
+                        {% for field in pass_change_form %}
+                            <label for="{{field.label}}">{{field.label}}</label><br>
+                            {{field}}<br>
+                            <small style="color: grey">{{ field.help_text }}</small>
+                            {% for error in field.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        {% endfor %}
+                        <button type="submit">Change Password</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -18,7 +30,25 @@
             <div class="w3-card w3-round w3-white">
                 <div class="w3-container w3-padding">
                     <h6 class="w3-opacity">Update Info</h6>
-                    <!--                     TODO Objective 3: Add User Info Update Forms -->
+                    <!-- TODO Objective 3: Add User Info Update Forms -->
+                    <form action="{% url 'social:info_update_view' %}" method="post">
+                        {% csrf_token %}
+                        {% for input in fields %}
+                            <label for="{{input}}">{{input}}</label><br>
+                            {% if input == 'Birthday' %}
+                                <input type="date" name="{{input}}" id="{{input}}_input"
+                                    value="{{render_birthday}}">
+                            {% elif input == 'Location' %}
+                                <input type="text" name="{{input}}" id="{{input}}_input" value="{{user_info.location}}">
+                            {% elif input == 'Employment' %}
+                                <input type="text" name="{{input}}" id="{{input}}_input" value="{{user_info.employment}}">
+                            {% else %}
+                                <input type="text" name="{{input}}" id="{{input}}_input" value="">
+                            {% endif %}
+                            <br>
+                        {% endfor %}
+                        <button type="submit">Update</button>
+                    </form>
                 </div>
             </div>
         </div>

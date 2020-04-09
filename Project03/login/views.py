@@ -8,7 +8,7 @@ from social import models
 
 
 def login_view(request):
-    """Serves lagin.djhtml from /e/macid/ (url name: login_view)
+    """Serves login.djhtml from /e/macid/ (url name: login_view)
     Parameters
     ----------
       request: (HttpRequest) - POST with username and password or an empty GET
@@ -63,14 +63,6 @@ def signup_view(request):
     -------
       out : (HttpRepsonse) - renders signup.djhtml
     """
-    form = UserCreationForm()
-    failed = request.session.get('create_failed', False)
-    context = {'signup_form': form, 'create_failed': failed}
-
-    return render(request, 'signup.djhtml', context)
-
-
-def user_create_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -88,5 +80,22 @@ def user_create_view(request):
             return redirect('social:messages_view')
     else:
         form = UserCreationForm()
-    request.session['create_failed'] = True
-    return redirect('login:signup_view')
+    context = {'signup_form': form}
+    return render(request, 'signup.djhtml', context)
+
+
+
+def password_change_view(request):
+    if not request.user.is_authenticated:
+        redirect('login:login_view')
+
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            return redirect('login:login_view')
+    else:
+        form = PasswordChangeForm(request.user)
+    context = {'user': request.user, 'change_form': form}
+    return render(request, 'login.djhtml', context)
