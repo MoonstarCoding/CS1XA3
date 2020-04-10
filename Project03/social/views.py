@@ -104,7 +104,7 @@ def people_view(request):
     """
     if request.user.is_authenticated:
         user_info = models.UserInfo.objects.get(user=request.user)
-        request.session['display_count'] = request.session.get('display_count', 1)
+            
         others = models.UserInfo.objects.exclude(user=request.user)
 
         # TODO Objective 4: create a list of all users who aren't friends to the current user (and limit size)
@@ -227,8 +227,8 @@ def more_ppl_view(request):
                 all_people += [user]
 
         # TODO Objective 4: increment session variable for keeping track of num ppl displayed
-        if request.session['display_count'] + 5 <= len(all_people):
-            request.session['display_count'] += 5
+        if request.session['display_count'] + 1 <= len(all_people):
+            request.session['display_count'] += 1
         else:
             request.session['display_count'] = len(all_people)
         # return status='success'

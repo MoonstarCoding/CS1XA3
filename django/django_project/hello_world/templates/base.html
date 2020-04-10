@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %} Hello, World! {% endblock %}</title>
+  {% load static %}
+  <!-- Styles -->
+  <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+
+  <!-- jQuery -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+
+  {% comment %} AJAX Setup {% endcomment %}
+  <script>
+  $.ajaxSetup({
+      headers: { "X-CSRFToken": '{{csrf_token}}' }
+  });
+  </script>
+</head>
+
+<body>
+  {% block content %}
+
+  {% endblock content %}
+
+  {% comment %} Scripts {% endcomment %}
+  {% block scripts %}
+  {% endblock scripts %}
+</body>
+
+</html>
