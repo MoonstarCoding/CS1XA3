@@ -104,18 +104,23 @@ def people_view(request):
     """
     if request.user.is_authenticated:
         user_info = models.UserInfo.objects.get(user=request.user)
-            
         others = models.UserInfo.objects.exclude(user=request.user)
+        request.session['display_count'] = request.session.get('display_count', 1)
 
         # TODO Objective 4: create a list of all users who aren't friends to the current user (and limit size)
         all_people = []
         for user in list(others):
             if user not in list(user_info.friends.all()):
                 all_people += [user]
-        print(request.session['display_count'])
 
         # TODO Objective 5: create a list of all friend requests to current user
+        friend_info = models.FriendRequest.objects.all()
         friend_requests = []
+        for friend in friend_info:
+            # print(friend.to_user.user)
+            # print(friend.from_user.user)
+            if friend.to_user == user_info:
+                friend_requests += [friend]
 
         context = {'user_info': user_info,
                    'all_people': all_people[:request.session['display_count']],
@@ -257,7 +262,16 @@ def friend_request_view(request):
 
         if request.user.is_authenticated:
             # TODO Objective 5: add new entry to FriendRequest
+            user_info = models.UserInfo.objects.get(user=request.user)
+            others = models.UserInfo.objects.exclude(user=request.user)
+            
+            for user in others:
+                if str(user.user) == username:
+                    others = user
+                    break
 
+            friend_request = models.FriendRequest(to_user=others, from_user=user_info)
+            friend_request.save()
             # return status='success'
             return HttpResponse()
         else:
@@ -284,9 +298,7 @@ def accept_decline_view(request):
     data = request.POST.get('decision')
     if data is not None:
         # TODO Objective 6: parse decision from data
-
         if request.user.is_authenticated:
-
             # TODO Objective 6: delete FriendRequest entry and update friends in both Users
 
             # return status='success'

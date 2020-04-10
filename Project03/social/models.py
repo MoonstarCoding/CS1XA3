@@ -12,9 +12,7 @@ class UserInfoManager(models.Manager):
         return userinfo
 
 class UserInfo(models.Model):
-    user = models.OneToOneField(User,
-                                on_delete=models.CASCADE,
-                                primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     objects = UserInfoManager()
     employment = models.CharField(max_length=30,default='Unspecified')
     location = models.CharField(max_length=50,default='Unspecified')
@@ -31,9 +29,5 @@ class Post(models.Model):
                                    related_name='likes')
 
 class FriendRequest(models.Model):
-    to_user = models.ForeignKey(UserInfo,
-                                on_delete=models.CASCADE,
-                                related_name='to_users')
-    from_user = models.ForeignKey(UserInfo,
-                                  on_delete=models.CASCADE,
-                                  related_name='from_users')
+    to_user = models.ForeignKey(UserInfo, on_delete=models.CASCADE, related_name='to_users')
+    from_user = models.ForeignKey(UserInfo, on_delete=models.CASCADE, related_name='from_users')
