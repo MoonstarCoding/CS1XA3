@@ -295,15 +295,30 @@ def accept_decline_view(request):
           out : (HttpResponse) - deletes entry to FriendRequest table, appends friends in UserInfo Models,
                              then returns an empty HttpResponse, 404 if POST data doesn't contain decision
     '''
-    data = request.POST.get('decision')
+    data = [request.POST.get('decision'), request.POST.get('username')]
+    user_info = models.UserInfo.objects.get(user=request.user)
     if data is not None:
-        # TODO Objective 6: parse decision from data
         if request.user.is_authenticated:
             # TODO Objective 6: delete FriendRequest entry and update friends in both Users
+            friend_request = list(models.FriendRequest.objects.filter(to_user=user_info))
+            for fr in friend_request:
+                if str(fr.from_user.user) == data[1]:
+                    friend_request = fr
+                    break   
+                
+            # if data[0] == "A":
+            #     user_info.friends.add(friend_request.from_user)
+            #     friend_request.from_user.friends.add(user_info)
+            #     user_info.save()
+            #     friend_request.from_user.save()               
+
+
+            instance = models.FriendRequest.objects.get(to_user=friend_request.to_user, from_user=friend_request.from_user)
+            instance.delete()
+            models.FriendRequest.save()
 
             # return status='success'
             return HttpResponse()
         else:
             return redirect('login:login_view')
-
     return HttpResponseNotFound('accept-decline-view called without decision in POST')

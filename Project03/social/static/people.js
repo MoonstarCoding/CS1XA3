@@ -8,7 +8,17 @@ function frResponse(data,status) {
         location.reload();
     }
     else {
-        alert('failed to create friend request ' + status);
+        alert('Failed to create friend request ' + status);
+    }
+}
+
+function aDResponse(data, status) {
+    if (status == 'success') {
+        // reload page to update like count
+        location.reload();
+    }
+    else {
+        alert(`Request Failed: ${status}`);
     }
 }
 
@@ -20,9 +30,7 @@ function friendRequest(event) {
     let url_path = friend_request_url;
 
     // AJAX post
-    $.post(url_path,
-           json_data,
-           frResponse);
+    $.post(url_path, json_data, frResponse);
 }
 
 /* ********************************************************************************************
@@ -60,22 +68,12 @@ function submitMorePpl(event) {
 function acceptDeclineRequest(event) {
     // TODO Objective 6: perform AJAX POST to accept or decline Friend Request
     let id = event.target.id;
-    if (id.charAt(0) == 'A') {
-        alert(`Request Aceepted`);
-    } else {
-        alert(`Request Declined`);   
-    }
-    decision = id.charAt(0);
-    username = id.splice(2);
-
+    let decision = id.charAt(0);
     let json_data = { 'decision': decision,
-                    'username': username };
-    let url_path = accept_decline_url;
+                    'username': id.slice(2) };
 
     // AJAX post
-    $.post(url_path,
-        json_data,
-        frResponse);
+    $.post(accept_decline_url, json_data, aDResponse);
 }
 
 /* 
