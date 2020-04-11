@@ -26,7 +26,7 @@ def messages_view(request):
 
         # TODO Objective 10: check if user has like post, attach as a new attribute to each post
 
-        context = {'user_info': user_info, 'posts': posts}
+        context = {'user_info': user_info, 'posts': posts, 'friends_list': user_info.friends.all()}
         return render(request, 'messages.djhtml', context)
 
     request.session['failed'] = True
