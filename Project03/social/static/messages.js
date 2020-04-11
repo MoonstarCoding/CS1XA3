@@ -15,11 +15,9 @@ function submitResponse(data, status) {
 
 function submitPost(event) {
     // TODO Objective 8: send contents of post-text via AJAX Post to post_submit_view (reload page upon success)
-    let id = event.target.id;
     let json_data = {
-        'postContent': 'This is a test'
+        'postContent': document.getElementById('post-text').innerHTML
     };
-
     // AJAX post
     $.post(post_submit_url, json_data, submitResponse);
 }

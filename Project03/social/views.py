@@ -181,8 +181,11 @@ def post_submit_view(request):
     postContent = request.POST.get('postContent')
     if postContent is not None:
         if request.user.is_authenticated:
-
             # TODO Objective 8: Add a new entry to the Post model
+            user_info = models.UserInfo.objects.get(user=request.user)
+            post_obj = models.Post(owner=user_info, content=postContent)
+            print(post_obj)
+            print(models.Post.objects.all())
 
             # return status='success'
             return HttpResponse()
@@ -306,11 +309,11 @@ def accept_decline_view(request):
                     friend_request = fr
                     break   
                 
-            # if data[0] == "A":
-            #     user_info.friends.add(friend_request.from_user)
-            #     friend_request.from_user.friends.add(user_info)
-            #     user_info.save()
-            #     friend_request.from_user.save()               
+            if data[0] == "A":
+                user_info.friends.add(friend_request.from_user)
+                friend_request.from_user.friends.add(user_info)
+                user_info.save()
+                friend_request.from_user.save()               
 
 
             instance = models.FriendRequest.objects.get(to_user=friend_request.to_user, from_user=friend_request.from_user)
