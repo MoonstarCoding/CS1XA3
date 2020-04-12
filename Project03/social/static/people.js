@@ -67,7 +67,7 @@ function submitMorePpl(event) {
 
 function acceptDeclineRequest(event) {
     // TODO Objective 6: perform AJAX POST to accept or decline Friend Request
-    let id = event.target.id;
+    let id = this.id;
     let decision = id.charAt(0);
     let json_data = { 'decision': decision,
                     'username': id.slice(2) };

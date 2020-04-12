@@ -56,10 +56,14 @@ def account_view(request):
         interest_list = list(user_info.interests.all())
         if len(interest_list) == 0:
             interest_list = [1,2,3,4,5]
+        if user_info.birthday is not None:
+            render_birthday = dt.datetime.strftime(user_info.birthday, "%Y-%m-%d")
+        else:
+            render_birthday = "0000-00-00"
         context = {'user_info': user_info,
                    'pass_change_form': pass_change_form,
                    'fields': ["Employment", "Location", "Birthday", "Interests"],
-                   'render_birthday': dt.datetime.strftime(user_info.birthday, "%Y-%m-%d"),
+                   'render_birthday': render_birthday,
                    'interest_list': interest_list}
         return render(request, 'account.djhtml', context)
 
@@ -72,8 +76,7 @@ def info_update_view(request):
     if request.method == 'POST':
         employment = request.POST.get('Employment', 'Unspecified')
         location = request.POST.get('Location', 'Unspecified')
-        birthday = request.POST.get(
-            'Birthday', '0001-01-01')
+        birthday = request.POST.get('Birthday', '0001-01-01')
         interest = request.POST.get('Interests', models.Interest('No Interest'))
 
         if type(interest) == str:
@@ -183,7 +186,7 @@ def post_submit_view(request):
         if request.user.is_authenticated:
             # TODO Objective 8: Add a new entry to the Post model
             user_info = models.UserInfo.objects.get(user=request.user)
-            post_obj = models.Post(owner=user_info, content=postContent)
+            post_obj = models.Post(user_info, postContent).save()
             print(post_obj)
             print(models.Post.objects.all())
 
@@ -267,14 +270,20 @@ def friend_request_view(request):
             # TODO Objective 5: add new entry to FriendRequest
             user_info = models.UserInfo.objects.get(user=request.user)
             others = models.UserInfo.objects.exclude(user=request.user)
-            
+
             for user in others:
                 if str(user.user) == username:
                     others = user
                     break
 
             friend_request = models.FriendRequest(to_user=others, from_user=user_info)
-            friend_request.save()
+            requests = models.FriendRequest.objects.filter(to_user=others, from_user=user_info)
+
+            if len(list(requests)) == 0:
+                friend_request.save()
+                print('Friend Request Added')
+            else:
+                print('Friend Request Failed')
             # return status='success'
             return HttpResponse()
         else:
@@ -307,18 +316,21 @@ def accept_decline_view(request):
             for fr in friend_request:
                 if str(fr.from_user.user) == data[1]:
                     friend_request = fr
-                    break   
-                
+                    break
+
             if data[0] == "A":
                 user_info.friends.add(friend_request.from_user)
                 friend_request.from_user.friends.add(user_info)
                 user_info.save()
-                friend_request.from_user.save()               
+                friend_request.from_user.save()
+            else:
+                pass
 
 
             instance = models.FriendRequest.objects.get(to_user=friend_request.to_user, from_user=friend_request.from_user)
             instance.delete()
-            models.FriendRequest.save()
+            # In Case of Emergency, Uncomment Below
+            # models.FriendRequest.objects.all().delete()
 
             # return status='success'
             return HttpResponse()

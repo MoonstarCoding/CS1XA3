@@ -47,6 +47,8 @@ def logout_view(request):
       out: (HttpResponse) - perform User logout and redirects to login_view
     """
     # TODO Objective 4 and 9: reset sessions variables
+    request.session['display_count'] = 1
+    request.session['post_count'] = 1
 
     # logout user
     logout(request)
@@ -63,6 +65,7 @@ def signup_view(request):
     -------
       out : (HttpRepsonse) - renders signup.djhtml
     """
+
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():

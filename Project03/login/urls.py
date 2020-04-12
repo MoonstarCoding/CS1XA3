@@ -16,6 +16,7 @@ Including another URLconf
 from django.urls import path
 from . import views
 
+# * Define Custom App Name for URL References
 app_name = 'login'
 urlpatterns = [
     path('', views.login_view, name='login_view'),
