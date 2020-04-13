@@ -59,7 +59,7 @@ def account_view(request):
         if user_info.birthday is not None:
             render_birthday = dt.datetime.strftime(user_info.birthday, "%Y-%m-%d")
         else:
-            render_birthday = "0000-00-00"
+            render_birthday = "0001-01-01"
         context = {'user_info': user_info,
                    'pass_change_form': pass_change_form,
                    'fields': ["Employment", "Location", "Birthday", "Interests"],
@@ -79,18 +79,21 @@ def info_update_view(request):
         birthday = request.POST.get('Birthday', '0001-01-01')
         interest = request.POST.get('Interests', models.Interest('No Interest'))
 
-        if type(interest) == str:
+        if type(interest) == str and interest != '':
             interest = models.Interest(label=f"{interest}")
+            interest.save(using='default')
+            user_info.interests.add(interest)
+
+        if birthday == '':
+            birthday = '0001-01-01'
 
         if type(birthday) == str and birthday != '0001-01-01':
             birthday = dt.datetime.strptime(birthday,'%Y-%m-%d')
             birthday = birthday.date().strftime('%Y-%m-%d')
+            user_info.birthday = birthday
 
         user_info.employment = employment
         user_info.location = location
-        user_info.birthday = birthday
-        interest.save(using='default')
-        user_info.interests.add(interest)
         user_info.save(using='default')
     return redirect('social:account_view')
 
