@@ -22,12 +22,17 @@ python manage.py runserver localhost:10045
 
 For a list of Users, refer to Objective 11. It consists of every user, as well as expected information tied to that user in JSON format.
 
-An example user with no information apart from being created was made as well, and the login info is:
+This will be the main user you will use that I have made, but I encourage you make another user as well.
 
 ```json
 {
-  "username": "TestUser",
-  "password": "ThisIsIt123"
+  "username": "Mark",
+  "password": "PlanetMoon3",
+  "employment": "McDonald's",
+  "Location": "Acton",
+  "birthday": "Aug. 1st, 2001",
+  "interests": ["Computers", "Video Games", "Food"],
+  "friends": ["Samantha", "Irene", "Craig", "Logan", "Gavin", "Susan", "Russel"]
 }
 ```
 
@@ -192,5 +197,14 @@ This is a testing database built around my family and a close friend's family. Y
   "birthday": "Unspecified",
   "interests": ["Computers", "Clash of Clans"],
   "friends": ["Mark", "Logan", "Gavin", "Susan"]
+},
+{
+  "username": "TestUser",
+  "password": "IAmATester123",
+  "employment": "",
+  "Location": "",
+  "birthday": "",
+  "interests": [],
+  "friends": []
 },
 ```
