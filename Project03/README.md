@@ -180,7 +180,7 @@ This is a testing database built around my family and a close friend's family. Y
   "password": "Clover12",
   "employment": "Eramosa Physiotherapy",
   "Location": "Acton",
-  "birthday": "",
+  "birthday": "Jan. 1st, 2001",
   "interests": ["Television", "Gardening", "Reading"],
   "friends": ["Mark", "Logan", "Gavin", "Russel"]
 },

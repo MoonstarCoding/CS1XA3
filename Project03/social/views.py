@@ -22,11 +22,14 @@ def messages_view(request):
         user_info = models.UserInfo.objects.get(user=request.user)
 
         # TODO Objective 9: query for posts (HINT only return posts needed to be displayed)
-        posts = []
+        request.session['post_count'] = request.session.get('post_count', 1)
+        posts = [post for post in models.Post.objects.all()]
+
 
         # TODO Objective 10: check if user has like post, attach as a new attribute to each post
 
-        context = {'user_info': user_info, 'posts': posts, 'friends_list': user_info.friends.all()}
+        context = {'user_info': user_info,
+                   'posts': posts[:request.session['post_count']], 'friends_list': user_info.friends.all()}
         return render(request, 'messages.djhtml', context)
 
     request.session['failed'] = True
@@ -189,9 +192,8 @@ def post_submit_view(request):
         if request.user.is_authenticated:
             # TODO Objective 8: Add a new entry to the Post model
             user_info = models.UserInfo.objects.get(user=request.user)
-            post_obj = models.Post(user_info, postContent).save()
-            print(post_obj)
-            print(models.Post.objects.all())
+            post_obj = models.Post(owner=user_info, content=postContent)
+            post_obj.save()
 
             # return status='success'
             return HttpResponse()
@@ -213,9 +215,12 @@ def more_post_view(request):
     '''
     if request.user.is_authenticated:
         # update the # of posts dispalyed
-
+        posts = [post for post in models.Post.objects.all()]
         # TODO Objective 9: update how many posts are displayed/returned by messages_view
-
+        if request.session['post_count'] + 1 <= len(posts):
+            request.session['post_count'] += 1
+        else:
+            request.session['post_count'] = len(posts)
         # return status='success'
         return HttpResponse()
 
