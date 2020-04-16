@@ -14,7 +14,13 @@
             <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> {{ user.location }} </p>
             <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{ user.birthday }} </p>
                 <!-- TODO Objective 5: make id unique to username and disable button if friend request already sent -->
-                <button type="button" id="fr-{{ user.user }}" class="w3-button w3-theme-d1 w3-margin-bottom fr-button">Friend Request</button>
+                {% if user in sent_requests %}
+                    <button type="button" id="fr-{{ user.user }}" class="w3-button w3-theme-d1 w3-margin-bottom fr-button w3-disabled">Friend Request Sent</button>
+                {% elif user in from_requests%}
+                    <button type="button" id="fr-{{ user.user }}" class="w3-button w3-theme-d1 w3-margin-bottom fr-button w3-disabled">Friend Request Pending</button>
+                {% else %}
+                    <button type="button" id="fr-{{ user.user }}" class="w3-button w3-theme-d1 w3-margin-bottom fr-button">Friend Request</button>
+                {% endif %}
         </div>
     {% endfor %}
     <div class="w3-container">

@@ -23,6 +23,7 @@ function aDResponse(data, status) {
 }
 
 function friendRequest(event) {
+    if ($(this).hasClass('w3-disabled')) { return false }
     // the id of the current button, should be fr-name where name is valid username
     let frID = event.target.id;
     let json_data = { 'frID' : frID };

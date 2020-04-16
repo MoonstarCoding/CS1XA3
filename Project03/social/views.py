@@ -133,7 +133,9 @@ def people_view(request):
         context = {'user_info': user_info,
                    'all_people': all_people[:request.session['display_count']],
                    'friend_requests': friend_requests,
-                   'display_count': request.session['display_count']}
+                   'display_count': request.session['display_count'],
+                   'sent_requests': list(user.to_user for user in models.FriendRequest.objects.filter(from_user=user_info)),
+                   'from_requests': list(user.from_user for user in models.FriendRequest.objects.filter(to_user=user_info))}
 
         return render(request, 'people.djhtml', context)
 

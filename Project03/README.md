@@ -14,9 +14,10 @@ Run locally with
 python manage.py runserver localhost:8000
 ```
 
-Run on mac1xa3.ca with
+Run on <https://www.mac1xa3.ca> with
 
 ```bash
+python manage.py collectstatic
 python manage.py runserver localhost:10045
 ```
 
@@ -203,5 +204,14 @@ This is a testing database built around my family and a close friend's family. Y
   "birthday": "Unspecified",
   "interests": ["Computers", "Clash of Clans"],
   "friends": ["Mark", "Logan", "Gavin", "Susan"]
+},
+{
+  "username": "TestUser",
+  "password": "IAmATester123",
+  "employment": "",
+  "Location": "",
+  "birthday": "",
+  "interests": [],
+  "friends": []
 }
 ```
