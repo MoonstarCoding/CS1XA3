@@ -36,6 +36,8 @@ This will be the main user you will use that I have made, but I encourage you ma
 }
 ```
 
+The url you will need to access this webpage on the mac1xa3 server is <https://www.mac1xa3.ca/e/hutchm6/>
+
 ## Objective 01 - Login and SignUp
 
 Description:
@@ -78,21 +80,21 @@ Additional Exception:
 ## Objective 04 - Displaying People List
 
 Description:
-Objective Description
+Display all non-friend user objects existing on the platform on the **people** screen using database query filters and django template looping.
 
 - Dot Jots
 
 ## Objective 05 - Sending Friend Request
 
 Description:
-Objective Description
+In each non-friend user object displayed from **Objective 4**, configure the friend request button to submit a friend request to a desired user using AJAX. Once the friend request has been sent, do not allow further friend requests to be submitted by the given user to the target user.
 
 - Dot Jots
 
 ## Objective 06 - Accepting/Declining Friend Requests
 
 Description:
-Objective Description
+In an extremely similar manner to **Objective 5**, meaning AJAX and JavaScript ID parsing, set up a way for users to accept or deny any friend requests that have been sent to them.
 
 - Dot Jots
 
@@ -201,14 +203,5 @@ This is a testing database built around my family and a close friend's family. Y
   "birthday": "Unspecified",
   "interests": ["Computers", "Clash of Clans"],
   "friends": ["Mark", "Logan", "Gavin", "Susan"]
-},
-{
-  "username": "TestUser",
-  "password": "IAmATester123",
-  "employment": "",
-  "Location": "",
-  "birthday": "",
-  "interests": [],
-  "friends": []
 }
 ```
