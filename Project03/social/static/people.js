@@ -1,5 +1,5 @@
 /* ********************************************************************************************
-   | Handle Submiting Friend Requests - called by $('.like-button').click(submitLike)
+   | Handle Submitting Friend Requests - called by $('.like-button').click(submitLike)
    ********************************************************************************************
    */
 function frResponse(data,status) {
@@ -76,7 +76,7 @@ function acceptDeclineRequest(event) {
     $.post(accept_decline_url, json_data, aDResponse);
 }
 
-/* 
+/*
     ********************************************************************************************
    | Document Ready (Only Execute After Document Has Been Loaded)
    ********************************************************************************************

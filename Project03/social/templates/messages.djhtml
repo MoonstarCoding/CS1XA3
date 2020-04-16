@@ -25,9 +25,14 @@
             {{post.content}}
             <hr class="w3-clear">
             <!-- TODO Objective 10: Add Post id and likes count -->
-                    <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom like-button" id="post-0">
-                        <i class="fa fa-thumbs-up"></i>  Like</button>
-            <span class="w3-button w3-theme-d1 w3-margin-bottom">0 Likes</span>
+            {% if user_info in post.likes.all %}
+              <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom like-button w3-disabled" id="post-{{ forloop.counter0 }}">
+            {% else %}
+              <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom like-button" id="post-{{ forloop.counter0 }}">
+            {% endif %}
+              <i class="fa fa-thumbs-up"></i>  Like
+            </button>
+            <span class="w3-button w3-theme-d1 w3-margin-bottom">{{post.likes.all|length}} Likes</span>
         </div>
       {% endfor %}
       <div class="w3-container">

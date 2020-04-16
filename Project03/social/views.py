@@ -28,8 +28,7 @@ def messages_view(request):
 
         # TODO Objective 10: check if user has like post, attach as a new attribute to each post
 
-        context = {'user_info': user_info,
-                   'posts': posts[:request.session['post_count']], 'friends_list': user_info.friends.all()}
+        context = {'user_info': user_info, 'posts': posts[:request.session['post_count']], 'friends_list': user_info.friends.all()}
         return render(request, 'messages.djhtml', context)
 
     request.session['failed'] = True
@@ -160,12 +159,16 @@ def like_view(request):
     '''
     postIDReq = request.POST.get('postID')
     if postIDReq is not None:
-        # remove 'post-' from postID and convert to int
+        user_info = models.UserInfo.objects.get(user=request.user)
         # TODO Objective 10: parse post id from postIDReq
-        postID = 0
+        postID = int(postIDReq)
+        post = list(models.Post.objects.all())[postID]
 
         if request.user.is_authenticated:
             # TODO Objective 10: update Post model entry to add user to likes field
+            post.likes.add(user_info)
+            post.save()
+            print(post.likes.all())
 
             # return status='success'
             return HttpResponse()

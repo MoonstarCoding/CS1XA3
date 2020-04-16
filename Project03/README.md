@@ -68,8 +68,12 @@ Update Settings:
 
 - Through a form made purely in HTML, no Django involved, a Post request is sent to the `def info_update_view(request)`.
 - Each input is then gathered from the request object, and has a default value incase deleted or unset. This default value correlates to the existing default in the databases.
-  - The ony exception to this is the Birthday, as it requires a default birthday in YYYY-MM-dd format.
+  - An exception to this is the Birthday field, as it requires a default birthday in YYYY-MM-dd format.
 - Once every value of the `UserInfo` object is set, the object is updated appropriately.
+
+Additional Exception:
+
+- Due to an error with default values regarding datetime objects, an exception had to be made. If the user attempts to set there birthday to be `Jan. 1st, 0001`, it will be detected as the default value and will not update the user's birthday variable. This means that no user can have the birthday `Jan. 1st, 0001`.
 
 ## Objective 04 - Displaying People List
 
@@ -206,5 +210,5 @@ This is a testing database built around my family and a close friend's family. Y
   "birthday": "",
   "interests": [],
   "friends": []
-},
+}
 ```

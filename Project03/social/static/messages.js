@@ -26,9 +26,29 @@ function submitPost(event) {
    | Handle Liking Posts - called by $('.like-button').click(submitLike)
    ********************************************************************************************
    */
+
+function likeResponse(data, status) {
+    if (status == 'success') {
+        // reload page to update like count
+        location.reload();
+    }
+    else {
+        alert(`Request Failed: ${status}`);
+    }
+}
+
 function submitLike(event) {
-    alert('Like Button Pressed');
     // TODO Objective 10: send post-n id via AJAX POST to like_view (reload page upon success)
+    if (!$(`#${event.target.id}`).hasClass('w3-disabled')) {
+        let post_id_number = event.target.id.slice(5);
+        let json_data = {
+            'postID': post_id_number
+        }
+        $.post(like_post_url, json_data, likeResponse);
+    } else {
+        alert('You have already liked this item.')
+    }
+
 }
 
 /* ********************************************************************************************
