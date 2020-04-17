@@ -17,6 +17,7 @@ python manage.py runserver localhost:8000
 Run on <https://www.mac1xa3.ca> with
 
 ```bash
+# collect static files first
 python manage.py collectstatic
 python manage.py runserver localhost:10045
 ```

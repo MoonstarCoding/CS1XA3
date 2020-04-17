@@ -23,7 +23,7 @@ def messages_view(request):
 
         # TODO Objective 9: query for posts (HINT only return posts needed to be displayed)
         request.session['post_count'] = request.session.get('post_count', 1)
-        posts = [post for post in models.Post.objects.all()]
+        posts = [post for post in models.Post.objects.all().order_by('-timestamp')]
 
 
         # TODO Objective 10: check if user has like post, attach as a new attribute to each post
@@ -170,7 +170,6 @@ def like_view(request):
             # TODO Objective 10: update Post model entry to add user to likes field
             post.likes.add(user_info)
             post.save()
-            print(post.likes.all())
 
             # return status='success'
             return HttpResponse()
