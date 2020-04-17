@@ -23,7 +23,7 @@ def messages_view(request):
 
         # TODO Objective 9: query for posts (HINT only return posts needed to be displayed)
         request.session['post_count'] = request.session.get('post_count', 1)
-        posts = [post for post in models.Post.objects.all().order_by('-timestamp')]
+        posts = list(models.Post.objects.all().order_by('-timestamp'))
 
 
         # TODO Objective 10: check if user has like post, attach as a new attribute to each post
