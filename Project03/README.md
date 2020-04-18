@@ -97,8 +97,6 @@ In each non-friend user object displayed from **Objective 4**, configure the fri
 
 Once the friend request has been sent, do not allow further friend requests to be submitted by the given user to the target user. This also will detect whether the target user has sent a request to uyu and prevent you from sending requests as well. The button will have a customized message explaining why it is disabled.
 
-
-
 ## Objective 06 - Accepting/Declining Friend Requests
 
 **Description:**
