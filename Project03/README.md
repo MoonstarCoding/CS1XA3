@@ -14,7 +14,7 @@ Run locally with
 python manage.py runserver localhost:8000
 ```
 
-Run on <https://www.mac1xa3.ca> with
+Run on <https://www.mac1xa3.ca/e/hutchm6/> with
 
 ```bash
 # collect static files first
